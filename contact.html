@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact · GHOST PEPPER</title>
+<meta name="description" content="Book Lily for DnB sets, fire shows, or wholesale apparel inquiries. Ghost Pepper — Charlotte / Asheville, NC.">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/styles.css">
+<meta property="og:title" content="Contact · GHOST PEPPER">
+<meta property="og:description" content="Book the burn. DJ sets, fire shows, apparel wholesale — reach out to Liliya Semenova.">
+<meta property="og:type" content="website">
+</head>
+<body>
+
+<!-- ============ NAV (canonical) ============ -->
+<header class="nav">
+  <div class="nav__inner">
+    <a class="nav__logo" href="index.html" aria-label="Ghost Pepper home">
+      <img src="assets/logo.svg" alt="" width="34" height="34" class="anim-glow">
+      <span class="nav__wordmark">GHOST PEPPER<small>GHOST.PEPPER.DNB</small></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="stream.html">Live</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+    <div class="flex items-center gap">
+      <a href="shop.html" class="nav__cart" data-cart-open aria-label="Cart">
+        <span>CART</span><span class="nav__cart-count" data-cart-count>0</span>
+      </a>
+      <button class="nav__burger" aria-label="Menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ CART DRAWER ============ -->
+<div class="cart-drawer" data-cart-drawer>
+  <div class="cart-drawer__head">
+    <h3>YOUR <span class="t-fire">CART</span></h3>
+    <button class="cart-drawer__close" data-cart-close aria-label="Close cart">✕</button>
+  </div>
+  <div class="cart-drawer__body" data-cart-items></div>
+  <div class="cart-drawer__foot">
+    <div class="cart-total" data-cart-total-row>
+      <span style="font-family:var(--mono);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);">Total</span>
+      <b data-cart-total>$0.00</b>
+    </div>
+    <button class="btn btn--fill" style="width:100%;" data-checkout>Checkout</button>
+  </div>
+</div>
+<div class="overlay" data-cart-close></div>
+
+<!-- ============ HERO ============ -->
+<section class="section" style="min-height:52vh; display:flex; align-items:center; overflow:hidden; position:relative;">
+  <div class="contact-hero__bg" aria-hidden="true"></div>
+  <div class="wrap" style="position:relative; z-index:2;">
+    <p class="eyebrow reveal">Get in touch</p>
+    <h1 class="reveal" style="margin-top:18px;">
+      BOOK THE <span class="t-fire">BURN</span>
+    </h1>
+    <p class="lede reveal mt-m" style="font-size:clamp(1.1rem,1.6vw,1.4rem); max-width:54ch;">
+      DnB sets, fire performances, wholesale apparel, press, and collab inquiries —
+      bring it. Fill out the form and Lily will be in touch.
+    </p>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>BOOK A SHOW</span><span>DnB SET</span><span>FIRE FLOW</span><span>WHOLESALE</span><span>COLLAB</span>
+    <span>BOOK A SHOW</span><span>DnB SET</span><span>FIRE FLOW</span><span>WHOLESALE</span><span>COLLAB</span>
+  </div>
+</div>
+
+<!-- ============ CONTACT MAIN ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="contact-layout">
+
+      <!-- ---- FORM COLUMN ---- -->
+      <div class="contact-form-col reveal">
+        <p class="eyebrow" style="margin-bottom:24px;">Send a message</p>
+
+        <!--
+          DEMO FORM — front-end only (no data is sent).
+          To wire this to a real backend, choose one of:
+
+          OPTION A — Formspree (easiest, free tier available):
+            1. Sign up at https://formspree.io
+            2. Create a form and copy your endpoint, e.g. https://formspree.io/f/xabcdefg
+            3. Set the <form> action to that URL and method="POST"
+            4. Remove the onsubmit handler below and let Formspree handle the redirect/AJAX.
+
+          OPTION B — mailto fallback (no signup needed, opens email client):
+            Change: <form ... onsubmit="...">
+            To:     <form method="POST" enctype="text/plain" action="mailto:booking@ghostpepper.dnb">
+            Note: mailto forms send plain text; no spam filtering or storage.
+
+          OPTION C — Netlify Forms (if hosting on Netlify):
+            Add   netlify   attribute to <form> and set name="contact"
+            Netlify auto-detects and handles submissions with no backend code.
+        -->
+        <form id="contact-form" class="contact-form"
+          onsubmit="gpFormSubmit(event)" novalidate>
+
+          <div class="form-row">
+            <label class="form-label" for="cf-name">Your Name <span class="form-req">*</span></label>
+            <input class="form-input" type="text" id="cf-name" name="name"
+              required autocomplete="name" placeholder="Liliya Semenova">
+          </div>
+
+          <div class="form-row">
+            <label class="form-label" for="cf-email">Email <span class="form-req">*</span></label>
+            <input class="form-input" type="email" id="cf-email" name="email"
+              required autocomplete="email" placeholder="you@email.com">
+          </div>
+
+          <div class="form-row">
+            <label class="form-label" for="cf-type">Inquiry Type <span class="form-req">*</span></label>
+            <select class="form-input form-select" id="cf-type" name="inquiry_type" required>
+              <option value="" disabled selected>Select one…</option>
+              <option value="booking-fire">Booking — Fire Show</option>
+              <option value="booking-dj">Booking — DJ Set</option>
+              <option value="wholesale">Wholesale / Apparel</option>
+              <option value="press">Press</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label class="form-label" for="cf-date">
+              Event Date
+              <span class="form-optional">(optional)</span>
+            </label>
+            <input class="form-input" type="date" id="cf-date" name="event_date">
+          </div>
+
+          <div class="form-row">
+            <label class="form-label" for="cf-message">Message <span class="form-req">*</span></label>
+            <textarea class="form-input form-textarea" id="cf-message" name="message"
+              required rows="6"
+              placeholder="Tell Lily about your event, venue, vibe, lineup, or what you're after…"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--fill btn--lg" style="width:100%; justify-content:center;">
+            Send It 🌶
+          </button>
+
+          <!-- Success message -->
+          <div class="form-success" id="form-success" aria-live="polite">
+            <span class="form-success__icon">🔥</span>
+            <div>
+              <strong>Message received.</strong><br>
+              <span style="color:var(--bone-dim); font-size:.95rem;">
+                Lily's inbox is officially on fire. Expect a reply within 2–3 days.
+              </span>
+            </div>
+          </div>
+
+        </form>
+      </div><!-- /form col -->
+
+      <!-- ---- SIDEBAR ---- -->
+      <aside class="contact-sidebar">
+
+        <!-- Location -->
+        <div class="sidebar-block reveal">
+          <p class="eyebrow" style="margin-bottom:14px;">Based in</p>
+          <p style="font-family:var(--display); font-size:clamp(1.5rem,3vw,2.2rem); line-height:1.05; color:var(--bone);">
+            Charlotte<br><span class="t-fire">&amp; Asheville</span>
+          </p>
+          <p class="lede" style="font-size:.9rem; margin-top:10px;">North Carolina, USA</p>
+          <p class="lede" style="font-size:.85rem; margin-top:6px; color:var(--muted);">
+            Available for travel — see FAQ below.
+          </p>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Booking email -->
+        <div class="sidebar-block reveal">
+          <p class="eyebrow" style="margin-bottom:14px;">Direct Booking</p>
+          <a href="mailto:booking@ghostpepper.dnb"
+            class="sidebar-email"
+            style="font-family:var(--mono); font-size:.88rem; color:var(--ember); word-break:break-all;">
+            booking@ghostpepper.dnb
+          </a>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Socials -->
+        <div class="sidebar-block reveal">
+          <p class="eyebrow" style="margin-bottom:14px;">Find Lily</p>
+          <div class="sidebar-socials">
+            <a href="https://www.instagram.com/ghost.pepper.dnb/"
+               target="_blank" rel="noopener"
+               class="sidebar-social-link">
+              <span class="social-icon">📸</span>
+              <span>
+                <strong>Instagram</strong><br>
+                <span style="color:var(--muted); font-size:.82rem;">@ghost.pepper.dnb</span>
+              </span>
+            </a>
+            <a href="https://www.facebook.com/smnvlily"
+               target="_blank" rel="noopener"
+               class="sidebar-social-link">
+              <span class="social-icon">🔗</span>
+              <span>
+                <strong>Facebook</strong><br>
+                <span style="color:var(--muted); font-size:.82rem;">smnvlily</span>
+              </span>
+            </a>
+            <a href="https://soundcloud.com/rzkpikachu"
+               target="_blank" rel="noopener"
+               class="sidebar-social-link">
+              <span class="social-icon">🔊</span>
+              <span>
+                <strong>SoundCloud</strong><br>
+                <span style="color:var(--muted); font-size:.82rem;">Mixes &amp; originals</span>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Quick note -->
+        <div class="sidebar-block reveal">
+          <div class="card" style="padding:20px; border-color:rgba(255,94,26,.25);">
+            <p style="font-family:var(--mono); font-size:.72rem; letter-spacing:.28em; text-transform:uppercase; color:var(--ember); margin-bottom:8px;">Note</p>
+            <p class="lede" style="font-size:.88rem;">
+              Response time is typically 2–3 business days. For urgent festival
+              production timelines, mention the event date in your message.
+            </p>
+          </div>
+        </div>
+
+      </aside><!-- /sidebar -->
+
+    </div><!-- /contact-layout -->
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section section--tight">
+  <div class="wrap">
+    <p class="eyebrow reveal">Quick Answers</p>
+    <h2 class="reveal mt-s">FREQUENTLY <span class="t-plasma">ASKED</span></h2>
+
+    <div class="faq-list mt-l">
+
+      <details class="faq-item reveal">
+        <summary class="faq-q">
+          <span>Do you travel for shows?</span>
+          <span class="faq-arrow" aria-hidden="true">↓</span>
+        </summary>
+        <div class="faq-a">
+          <p>Yes — Lily is available to travel nationally and internationally for festivals,
+          club events, and private performances. Travel logistics (flights, accommodation,
+          rider) are factored into the booking rate. Home markets are Charlotte and Asheville,
+          NC, where travel costs are minimal. Reach out early for touring season bookings —
+          the calendar fills fast.</p>
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary class="faq-q">
+          <span>What do fire shows require?</span>
+          <span class="faq-arrow" aria-hidden="true">↓</span>
+        </summary>
+        <div class="faq-a">
+          <p>Fire performances need an approved outdoor or ventilated indoor space, a
+          designated fire safety area with a spotter, and a flame-retardant performance
+          surface (or confirmed clearance from your venue). A water/damp-towel safety
+          setup must be on-site. Lily carries her own equipment and insurance documentation.
+          Full tech rider and requirements will be shared after initial contact.</p>
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary class="faq-q">
+          <span>Wholesale apparel inquiries?</span>
+          <span class="faq-arrow" aria-hidden="true">↓</span>
+        </summary>
+        <div class="faq-a">
+          <p>Blue-Flame Designs is open to select wholesale partnerships with boutiques,
+          festival merch vendors, and flow-arts retailers whose vibe aligns with the brand.
+          Minimum order quantities, pricing tiers, and lead times vary by product line.
+          Select "Wholesale / Apparel" from the inquiry type above and describe your shop
+          or event — Lily will follow up with a wholesale deck.</p>
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary class="faq-q">
+          <span>Can you do custom apparel designs?</span>
+          <span class="faq-arrow" aria-hidden="true">↓</span>
+        </summary>
+        <div class="faq-a">
+          <p>Custom commission work is available on a selective basis — festival capsule
+          collections, event-specific merch, and collaborative design projects. Capacity
+          is limited and priority goes to projects with aligned aesthetics (dark, UV, rave,
+          circus, fire). Include a brief description of your vision, timeline, and
+          approximate quantity needs in your message and Lily will let you know if it's
+          a fit.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER (canonical) ============ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div>
+        <a class="nav__logo" href="index.html" style="margin-bottom:14px;">
+          <img src="assets/logo.svg" alt="" width="30" height="30">
+          <span class="nav__wordmark" style="font-size:1.3rem;">GHOST PEPPER</span>
+        </a>
+        <p class="lede" style="font-size:.95rem; max-width:32ch;">Jackalope of all trades. Fire, bass, and threads from Liliya Semenova. 🌶🔥🔊</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="index.html">Home</a><a href="shop.html">Shop</a><a href="stream.html">Live</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <a href="https://www.instagram.com/ghost.pepper.dnb/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/smnvlily" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://soundcloud.com/rzkpikachu" target="_blank" rel="noopener">SoundCloud</a>
+        <a href="contact.html">Book a show</a>
+      </div>
+      <div>
+        <h4>The Drop List</h4>
+        <p class="lede" style="font-size:.9rem;">Get early access to apparel + show dates.</p>
+        <a href="#" class="btn btn--uv btn--sm" style="margin-top:10px;">Join →</a>
+      </div>
+    </div>
+    <div class="foot__bottom">
+      <span>© <span data-year>2026</span> GHOST PEPPER · Blue-Flame Designs</span>
+      <span>Built in fire · Wear the burn</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+  /* ---- Contact form submit handler ---- */
+  function gpFormSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    // Validate
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    // Reset + show success
+    form.reset();
+    const ok = document.getElementById('form-success');
+    ok.classList.add('show');
+    ok.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    // Hide success after 8 s
+    setTimeout(() => ok.classList.remove('show'), 8000);
+  }
+</script>
+
+<style>
+/* ---- Contact hero bg ---- */
+.contact-hero__bg {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    radial-gradient(60% 80% at 100% 0%, rgba(225,18,18,.18), transparent 55%),
+    radial-gradient(50% 60% at 0% 80%, rgba(255,94,26,.16), transparent 60%),
+    radial-gradient(40% 50% at 55% 50%, rgba(176,38,255,.12), transparent 60%);
+  animation: hueShift 28s linear infinite; mix-blend-mode: screen;
+}
+
+/* ---- Two-column layout ---- */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: clamp(32px, 5vw, 80px);
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .contact-layout { grid-template-columns: 1fr; }
+  .contact-sidebar { display: contents; } /* flatten sidebar into flow on mobile */
+}
+
+/* ---- Form elements ---- */
+.contact-form { display: flex; flex-direction: column; gap: 22px; }
+
+.form-row { display: flex; flex-direction: column; gap: 8px; }
+
+.form-label {
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--bone-dim);
+  display: flex; gap: 8px; align-items: baseline;
+}
+.form-req { color: var(--ember); }
+.form-optional { color: var(--muted); font-size: .68rem; letter-spacing: .15em; }
+
+.form-input {
+  background: var(--void-2);
+  border: 1px solid rgba(255,255,255,.1);
+  color: var(--bone);
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-family: var(--body);
+  font-size: 1rem;
+  width: 100%;
+  transition: .2s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.form-input::placeholder { color: var(--muted); }
+.form-input:focus {
+  outline: none;
+  border-color: var(--ember);
+  box-shadow: 0 0 0 3px rgba(255,94,26,.18);
+  background: rgba(10,10,18,.85);
+}
+.form-select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23b9b4a8' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 42px;
+}
+.form-select option { background: var(--char); color: var(--bone); }
+
+.form-textarea { resize: vertical; min-height: 140px; line-height: 1.6; }
+
+/* date input calendar icon color (WebKit) */
+input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(.5); cursor: pointer; }
+
+/* ---- Form success ---- */
+.form-success {
+  display: flex; align-items: flex-start; gap: 14px;
+  background: linear-gradient(135deg, rgba(57,255,20,.08), rgba(0,179,255,.08));
+  border: 1px solid rgba(57,255,20,.3);
+  border-radius: 12px;
+  padding: 18px 20px;
+  opacity: 0; transform: translateY(10px);
+  transition: .4s ease;
+  pointer-events: none;
+}
+.form-success.show { opacity: 1; transform: none; pointer-events: auto; }
+.form-success__icon { font-size: 1.6rem; flex-shrink: 0; }
+
+/* ---- Sidebar blocks ---- */
+.contact-sidebar { display: flex; flex-direction: column; gap: 0; }
+.sidebar-block { padding-block: 10px; }
+
+.sidebar-email {
+  display: inline-block;
+  transition: .2s;
+}
+.sidebar-email:hover { color: var(--ember-hot); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---- Social links ---- */
+.sidebar-socials { display: flex; flex-direction: column; gap: 14px; margin-top: 4px; }
+.sidebar-social-link {
+  display: flex; align-items: center; gap: 14px;
+  padding: 12px 16px;
+  background: var(--void-2);
+  border: var(--ring);
+  border-radius: 10px;
+  color: var(--bone);
+  transition: .2s ease;
+  font-size: .9rem;
+}
+.sidebar-social-link:hover {
+  border-color: rgba(255,94,26,.4);
+  box-shadow: 0 4px 20px -8px rgba(255,94,26,.4);
+  transform: translateX(4px);
+}
+.social-icon { font-size: 1.2rem; flex-shrink: 0; }
+
+/* ---- FAQ accordion ---- */
+.faq-list { display: flex; flex-direction: column; gap: 0; max-width: 860px; }
+
+.faq-item {
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.faq-item:first-child { border-top: 1px solid rgba(255,255,255,.07); }
+
+.faq-q {
+  list-style: none;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 20px;
+  padding: 22px 6px;
+  cursor: pointer;
+  font-family: var(--display);
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  letter-spacing: 1px;
+  color: var(--bone-dim);
+  transition: .2s ease;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.faq-q::-webkit-details-marker { display: none; }
+.faq-q::marker { display: none; }
+
+.faq-item[open] .faq-q { color: var(--bone); }
+.faq-item[open] .faq-q .faq-arrow { transform: rotate(180deg); color: var(--ember); }
+
+.faq-q:hover { color: var(--bone); }
+.faq-q:hover .faq-arrow { color: var(--ember); }
+
+.faq-arrow {
+  font-size: 1.1rem;
+  transition: .3s ease;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+.faq-a {
+  padding: 0 6px 24px;
+}
+.faq-a p {
+  font-size: clamp(.9rem, 1.3vw, 1.05rem);
+  color: var(--bone-dim);
+  line-height: 1.7;
+  max-width: 66ch;
+}
+
+/* ---- Reveal stagger on sidebar ---- */
+@media (max-width: 900px) {
+  .sidebar-block { order: unset; }
+}
+</style>
+</body>
+</html>

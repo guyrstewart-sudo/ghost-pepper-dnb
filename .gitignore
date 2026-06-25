@@ -1,0 +1,7 @@
+# OS / editor junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Raw photo source dumps (originals kept locally, not for the live site)
+assets/photos/_raw/

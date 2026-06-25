@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product · GHOST PEPPER</title>
+<meta name="description" content="GHOST PEPPER — Liliya Semenova. Drum & bass, fire performance, and festival apparel. Wear the burn.">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/styles.css">
+<meta property="og:title" content="GHOST PEPPER — Drum & Bass · Fire · Apparel">
+<meta property="og:description" content="Wear the burn. Fire-forged festival apparel and DnB rituals by Liliya Semenova.">
+<meta property="og:type" content="website">
+</head>
+<body>
+
+<!-- ============ NAV (canonical) ============ -->
+<header class="nav">
+  <div class="nav__inner">
+    <a class="nav__logo" href="index.html" aria-label="Ghost Pepper home">
+      <img src="assets/logo.svg" alt="" width="34" height="34" class="anim-glow">
+      <span class="nav__wordmark">GHOST PEPPER<small>GHOST.PEPPER.DNB</small></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="shop.html" class="active">Shop</a>
+      <a href="stream.html">Live</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="flex items-center gap">
+      <a href="shop.html" class="nav__cart" data-cart-open aria-label="Cart">
+        <span>CART</span><span class="nav__cart-count" data-cart-count>0</span>
+      </a>
+      <button class="nav__burger" aria-label="Menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ PRODUCT DETAIL ============ -->
+<section class="section section--tight">
+  <div class="wrap">
+
+    <!-- Breadcrumb -->
+    <p class="eyebrow reveal" style="margin-bottom:32px;">
+      <a href="shop.html" style="color:var(--ember);">Shop</a>
+      &nbsp;/&nbsp; <span id="pd-crumb" style="color:var(--bone-dim);">Product</span>
+    </p>
+
+    <!-- Main product grid -->
+    <div class="grid grid--2 pd-layout" id="pd-layout">
+
+      <!-- LEFT: Image gallery -->
+      <div class="pd-gallery reveal">
+        <div class="pd-main-img card" id="pd-main-img" style="aspect-ratio:4/5; overflow:hidden; display:flex; align-items:center; justify-content:center; border-radius:var(--radius);">
+          <!-- filled by JS -->
+        </div>
+        <div class="flex gap" style="margin-top:16px;" id="pd-thumbs">
+          <!-- filled by JS -->
+        </div>
+      </div>
+
+      <!-- RIGHT: Product info -->
+      <div class="stack reveal" id="pd-info">
+        <!-- filled by JS -->
+      </div>
+
+    </div>
+
+    <!-- Trust badges -->
+    <div class="flex gap wrapf reveal" style="margin-top:40px; padding-top:32px; border-top:var(--ring);">
+      <span class="tag tag--uv">🟢 UV-Reactive</span>
+      <span class="tag tag--fire">🔥 Fire-Flow Tested</span>
+      <span class="tag tag--blue">📦 Ships from NC</span>
+      <span class="tag">🌶 Limited Drop</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ MORE HEAT ============ -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="flex between items-center wrapf" style="gap:18px; margin-bottom:40px;">
+      <div>
+        <p class="eyebrow reveal">More Heat</p>
+        <h2 class="reveal mt-s">YOU MIGHT ALSO <span class="t-fire">BURN</span></h2>
+      </div>
+      <a href="shop.html" class="btn btn--ghost reveal">View full shop →</a>
+    </div>
+    <div class="grid grid--4" id="related-grid">
+      <!-- filled by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ============ CART DRAWER ============ -->
+<div class="overlay" data-cart-close></div>
+<aside class="cart-drawer" data-cart-drawer aria-label="Shopping cart">
+  <div class="cart-drawer__head">
+    <h3 class="t-fire">YOUR CART</h3>
+    <button class="cart-drawer__close" data-cart-close aria-label="Close cart">✕</button>
+  </div>
+  <div class="cart-drawer__body" data-cart-items></div>
+  <div class="cart-drawer__foot">
+    <div class="cart-total" data-cart-total-wrap>
+      <span style="font-family:var(--mono); font-size:.8rem; letter-spacing:.15em; text-transform:uppercase; color:var(--muted);">Total</span>
+      <b data-cart-total>$0.00</b>
+    </div>
+    <button class="btn btn--fill" style="width:100%;" data-checkout>Checkout →</button>
+  </div>
+</aside>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+<script>
+(function () {
+  /* ---- helpers ---- */
+  const $ = (sel, ctx) => (ctx || document).querySelector(sel);
+  const $$ = (sel, ctx) => (ctx || document).querySelectorAll(sel);
+
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), { threshold: .1 });
+
+  function observe(root) {
+    (root || document).querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
+  }
+
+  /* ---- resolve product from ?id= ---- */
+  const prods = window.GP_PRODUCTS || [];
+  const urlId = new URLSearchParams(location.search).get('id');
+  const p = (urlId && prods.find(x => x.id === urlId)) || prods[0];
+
+  if (!p) { document.body.innerHTML = '<p style="padding:80px; text-align:center;">Product not found.</p>'; return; }
+
+  /* ---- page title + crumb ---- */
+  document.title = p.name + ' · GHOST PEPPER';
+  $('#pd-crumb').textContent = p.name;
+
+  /* ---- main image area ---- */
+  const mainImg = $('#pd-main-img');
+  if (p.img) {
+    mainImg.innerHTML = `<img src="${p.img}" alt="${p.name}" style="width:100%; height:100%; object-fit:cover;">`;
+  } else {
+    mainImg.innerHTML = `<div class="ph" data-label="${p.name}" style="position:absolute; inset:0;"></div>`;
+    mainImg.style.position = 'relative';
+  }
+
+  /* ---- thumbnails ---- */
+  const thumbLabels = ['View 2', 'View 3', 'View 4'];
+  const thumbsEl = $('#pd-thumbs');
+  thumbsEl.innerHTML = thumbLabels.map(label => `
+    <div class="ph" data-label="${label}"
+      style="width:calc(33.33% - 11px); aspect-ratio:1/1; border-radius:10px; flex-shrink:0; cursor:pointer; border:1px solid rgba(255,255,255,.08); position:relative;">
+    </div>`).join('');
+
+  /* ---- size selector (single <select> so cart.js can find [data-size]) ---- */
+  const sizeOpts = p.sizes.map(s => `<option value="${s}">${s}</option>`).join('');
+
+  /* ---- right column ---- */
+  const tagClass = { Tees:'tag--fire', Outerwear:'tag--blue', Performance:'tag--uv', Headwear:'tag--blue', Accessories:'tag--fire', Art:'tag--uv' }[p.category] || '';
+  const badge = p.badge ? `<span class="tag tag--fire" style="margin-left:10px;">${p.badge}</span>` : '';
+
+  const infoEl = $('#pd-info');
+  infoEl.setAttribute('data-product', p.id);
+  infoEl.setAttribute('data-name', p.name);
+  infoEl.setAttribute('data-price', p.price);
+
+  infoEl.innerHTML = `
+    <div class="flex items-center gap" style="flex-wrap:wrap;">
+      <span class="tag ${tagClass}">${p.category}</span>${badge}
+    </div>
+
+    <h1 style="font-size:clamp(2.2rem,5vw,4rem); margin-top:18px; line-height:.92;">${p.name}</h1>
+
+    <div class="flex items-center gap" style="margin-top:16px; flex-wrap:wrap;">
+      <span class="price" style="font-size:2.2rem;">$${p.price.toFixed(2)}</span>
+      <span class="tag" style="font-family:var(--mono); font-size:.7rem;">In Stock</span>
+    </div>
+
+    <p class="lede" style="margin-top:20px;">${p.desc || p.blurb}</p>
+
+    <div style="margin-top:28px;">
+      <label style="font-family:var(--mono); font-size:.72rem; letter-spacing:.28em; text-transform:uppercase; color:var(--ember); display:block; margin-bottom:10px;">Size</label>
+      <select data-size
+        style="background:var(--void-2); border:var(--ring); color:var(--bone); padding:12px 20px; border-radius:50px; font-family:var(--mono); font-size:.85rem; min-width:180px; cursor:pointer; outline:none;">
+        ${sizeOpts}
+      </select>
+    </div>
+
+    <div style="margin-top:24px; display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+      <label style="font-family:var(--mono); font-size:.72rem; letter-spacing:.28em; text-transform:uppercase; color:var(--ember);">Qty</label>
+      <div class="qty-stepper flex items-center gap" style="background:var(--void-2); border:var(--ring); border-radius:50px; padding:4px 6px; gap:0;">
+        <button class="qty-btn" id="qty-dec" aria-label="Decrease quantity"
+          style="background:none; border:0; color:var(--bone-dim); font-size:1.2rem; width:34px; height:34px; border-radius:50px; display:flex; align-items:center; justify-content:center;">−</button>
+        <span id="qty-val" style="font-family:var(--mono); font-weight:700; min-width:28px; text-align:center;">1</span>
+        <button class="qty-btn" id="qty-inc" aria-label="Increase quantity"
+          style="background:none; border:0; color:var(--bone-dim); font-size:1.2rem; width:34px; height:34px; border-radius:50px; display:flex; align-items:center; justify-content:center;">+</button>
+      </div>
+    </div>
+
+    <div class="flex gap wrapf" style="margin-top:32px;">
+      <button class="btn btn--fill btn--lg" id="pd-add" data-add="${p.id}" data-name="${p.name}" data-price="${p.price}">
+        Add to Cart
+      </button>
+      <a href="shop.html" class="btn btn--ghost btn--lg">← Full Shop</a>
+    </div>
+  `;
+
+  /* ---- quantity stepper wiring ---- */
+  let qty = 1;
+  const qtyVal = $('#qty-val');
+  $('#qty-inc').addEventListener('click', () => { qty = Math.min(99, qty + 1); qtyVal.textContent = qty; });
+  $('#qty-dec').addEventListener('click', () => { qty = Math.max(1, qty - 1); qtyVal.textContent = qty; });
+
+  /* ---- override add-to-cart to include quantity ---- */
+  $('#pd-add').addEventListener('click', function (e) {
+    e.stopPropagation(); // let cart.js handle via delegation — BUT we inject qty
+    const sizeSel = infoEl.querySelector('[data-size]');
+    const size = sizeSel ? sizeSel.value : 'OS';
+    // call GPCart.add directly for multi-qty support
+    if (window.GPCart) {
+      for (let i = 0; i < qty; i++) {
+        window.GPCart.add({ id: p.id, name: p.name, price: p.price, size });
+      }
+      // open cart drawer
+      document.querySelector('[data-cart-drawer]')?.classList.add('open');
+      document.querySelector('.overlay')?.classList.add('open');
+      e.preventDefault();
+    }
+    // if GPCart not ready, let delegation handle it normally
+  });
+
+  /* ---- related products (exclude current, pick up to 4) ---- */
+  const related = prods.filter(x => x.id !== p.id).slice(0, 4);
+  const relGrid = $('#related-grid');
+  relGrid.innerHTML = related.map(r => `
+    <article class="card reveal" data-product="${r.id}" data-name="${r.name}" data-price="${r.price}">
+      <a href="product.html?id=${r.id}" style="display:block;">
+        <div class="card__media">
+          ${r.img
+            ? `<img src="${r.img}" alt="${r.name}" style="width:100%; height:100%; object-fit:cover;">`
+            : `<div class="ph" data-label="${r.name}"></div>`}
+          ${r.badge ? `<span class="tag tag--fire" style="position:absolute;top:12px;left:12px;">${r.badge}</span>` : ''}
+        </div>
+      </a>
+      <div class="card__body">
+        <div class="flex between items-center">
+          <h3 style="font-size:1.1rem;"><a href="product.html?id=${r.id}">${r.name}</a></h3>
+          <span class="price">$${r.price.toFixed(2)}</span>
+        </div>
+        <p class="lede" style="font-size:.85rem; margin-top:6px;">${r.blurb}</p>
+        <div class="flex gap wrapf" style="margin-top:12px;">
+          <button class="btn btn--fill btn--sm" data-add="${r.id}" data-name="${r.name}" data-price="${r.price}">Add to Cart</button>
+          <a href="product.html?id=${r.id}" class="btn btn--ghost btn--sm">Details</a>
+        </div>
+      </div>
+    </article>`).join('');
+
+  /* ---- overlay/drawer toggle for overlay click ---- */
+  document.querySelector('.overlay')?.addEventListener('click', () => {
+    document.querySelector('[data-cart-drawer]')?.classList.remove('open');
+    document.querySelector('.overlay')?.classList.remove('open');
+  });
+
+  /* ---- wire data-cart-open to also open overlay ---- */
+  document.querySelectorAll('[data-cart-open]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelector('.overlay')?.classList.add('open');
+    });
+  });
+  document.querySelectorAll('[data-cart-close]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelector('.overlay')?.classList.remove('open');
+    });
+  });
+
+  /* ---- year ---- */
+  document.querySelectorAll('[data-year]').forEach(el => el.textContent = new Date().getFullYear());
+
+  /* ---- fire reveal observer ---- */
+  observe();
+
+})();
+</script>
+
+<!-- ============ FOOTER (canonical) ============ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div>
+        <a class="nav__logo" href="index.html" style="margin-bottom:14px;">
+          <img src="assets/logo.svg" alt="" width="30" height="30">
+          <span class="nav__wordmark" style="font-size:1.3rem;">GHOST PEPPER</span>
+        </a>
+        <p class="lede" style="font-size:.95rem; max-width:32ch;">Jackalope of all trades. Fire, bass, and threads from Liliya Semenova. 🌶🔥🔊</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="index.html">Home</a><a href="shop.html">Shop</a><a href="stream.html">Live</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <a href="https://www.instagram.com/ghost.pepper.dnb/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/smnvlily" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://soundcloud.com/rzkpikachu" target="_blank" rel="noopener">SoundCloud</a>
+        <a href="contact.html">Book a show</a>
+      </div>
+      <div>
+        <h4>The Drop List</h4>
+        <p class="lede" style="font-size:.9rem;">Get early access to apparel + show dates.</p>
+        <a href="#" class="btn btn--uv btn--sm" style="margin-top:10px;">Join →</a>
+      </div>
+    </div>
+    <div class="foot__bottom">
+      <span>© <span data-year>2026</span> GHOST PEPPER · Blue-Flame Designs</span>
+      <span>Built in fire · Wear the burn</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+/* product detail page — scoped overrides */
+.pd-gallery { display:flex; flex-direction:column; }
+
+@media (max-width:600px){
+  .pd-layout { gap: clamp(16px,4vw,30px); }
+  #pd-thumbs { gap: 10px; }
+  #pd-thumbs .ph { width: calc(33.33% - 7px) !important; }
+}
+
+/* size select hover/focus */
+select[data-size]:hover { border-color: rgba(255,94,26,.5); }
+select[data-size]:focus { outline: none; box-shadow: 0 0 0 2px rgba(255,94,26,.4); }
+select[data-size] option { background: var(--void-2); }
+
+/* qty stepper hover */
+.qty-btn:hover { color: var(--ember) !important; background: rgba(255,94,26,.12) !important; }
+</style>
+</body>
+</html>

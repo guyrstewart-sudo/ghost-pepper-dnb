@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shop · GHOST PEPPER</title>
+<meta name="description" content="Shop fire-forged festival apparel, UV tees, performance wear, and art prints. Blue-Flame Designs by Liliya Semenova. Wear the burn.">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/styles.css">
+<meta property="og:title" content="Shop · GHOST PEPPER — Blue-Flame Designs">
+<meta property="og:description" content="UV-reactive tees, hoodies, performance wear, headwear, accessories, and art prints. Limited drops. Wear the burn.">
+<meta property="og:type" content="website">
+</head>
+<body>
+
+<!-- ============ NAV (canonical) ============ -->
+<header class="nav">
+  <div class="nav__inner">
+    <a class="nav__logo" href="index.html" aria-label="Ghost Pepper home">
+      <img src="assets/logo.svg" alt="" width="34" height="34" class="anim-glow">
+      <span class="nav__wordmark">GHOST PEPPER<small>GHOST.PEPPER.DNB</small></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="shop.html" class="active">Shop</a>
+      <a href="stream.html">Live</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="flex items-center gap">
+      <a href="#" class="nav__cart" data-cart-open aria-label="Cart">
+        <span>CART</span><span class="nav__cart-count" data-cart-count>0</span>
+      </a>
+      <button class="nav__burger" aria-label="Menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ OVERLAY ============ -->
+<div class="overlay" data-cart-close></div>
+
+<!-- ============ CART DRAWER ============ -->
+<aside class="cart-drawer" data-cart-drawer aria-label="Shopping cart">
+  <div class="cart-drawer__head">
+    <h3 class="t-fire">YOUR CART</h3>
+    <button class="cart-drawer__close" data-cart-close aria-label="Close cart">✕</button>
+  </div>
+  <div class="cart-drawer__body" data-cart-items>
+    <p class="cart-empty">Cart is empty — go grab some heat. 🌶</p>
+  </div>
+  <div class="cart-drawer__foot">
+    <div class="cart-total">
+      <span>Total</span>
+      <b data-cart-total>$0.00</b>
+    </div>
+    <button class="btn btn--fill" style="width:100%;" data-checkout>Checkout</button>
+  </div>
+</aside>
+
+<!-- ============ SHOP HERO ============ -->
+<section class="section section--tight shop-hero" style="min-height:38vh; display:flex; align-items:center; overflow:hidden;">
+  <div class="shop-hero__bg" aria-hidden="true"></div>
+  <div class="wrap" style="position:relative; z-index:2;">
+    <p class="eyebrow reveal">The Drop</p>
+    <h2 class="reveal mt-s">SHOP THE <span class="t-fire">HEAT</span></h2>
+    <p class="lede reveal mt-s" style="max-width:48ch;">
+      UV-reactive fits, fire-flow performance wear, and limited art prints —
+      hand-forged under the <span class="t-blue">Blue-Flame</span> label.
+    </p>
+    <div class="flex gap wrapf mt-s reveal" style="margin-top:22px;">
+      <span class="tag tag--fire">🌶 Ghost-Pepper Hot</span>
+      <span class="tag tag--uv">⚡ UV-Reactive</span>
+      <span class="tag tag--blue">🔥 Fire-Flow Tested</span>
+      <span class="tag">Limited Drops</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>TEES</span><span>OUTERWEAR</span><span>PERFORMANCE</span><span>HEADWEAR</span><span>ACCESSORIES</span><span>ART</span>
+    <span>TEES</span><span>OUTERWEAR</span><span>PERFORMANCE</span><span>HEADWEAR</span><span>ACCESSORIES</span><span>ART</span>
+  </div>
+</div>
+
+<!-- ============ PRODUCT GRID ============ -->
+<section class="section section--tight">
+  <div class="wrap">
+
+    <!-- Category filter bar -->
+    <div class="filter-bar reveal" role="group" aria-label="Filter by category" id="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="Tees">Tees</button>
+      <button class="filter-btn" data-filter="Outerwear">Outerwear</button>
+      <button class="filter-btn" data-filter="Performance">Performance</button>
+      <button class="filter-btn" data-filter="Headwear">Headwear</button>
+      <button class="filter-btn" data-filter="Accessories">Accessories</button>
+      <button class="filter-btn" data-filter="Art">Art</button>
+    </div>
+
+    <!-- Product count line -->
+    <p class="filter-count reveal" id="filter-count" style="margin-top:14px;"></p>
+
+    <!-- Product grid -->
+    <div class="grid grid--4 mt-l" id="product-grid">
+      <!-- rendered by JS below -->
+    </div>
+
+    <!-- Empty state -->
+    <p class="filter-empty" id="filter-empty" style="display:none;">
+      No items in this category yet — check back after the next drop. 🌶
+    </p>
+
+  </div>
+</section>
+
+<!-- ============ FOOTER (canonical) ============ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div>
+        <a class="nav__logo" href="index.html" style="margin-bottom:14px;">
+          <img src="assets/logo.svg" alt="" width="30" height="30">
+          <span class="nav__wordmark" style="font-size:1.3rem;">GHOST PEPPER</span>
+        </a>
+        <p class="lede" style="font-size:.95rem; max-width:32ch;">Jackalope of all trades. Fire, bass, and threads from Liliya Semenova. 🌶🔥🔊</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="index.html">Home</a><a href="shop.html">Shop</a><a href="stream.html">Live</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <a href="https://www.instagram.com/ghost.pepper.dnb/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/smnvlily" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://soundcloud.com/rzkpikachu" target="_blank" rel="noopener">SoundCloud</a>
+        <a href="contact.html">Book a show</a>
+      </div>
+      <div>
+        <h4>The Drop List</h4>
+        <p class="lede" style="font-size:.9rem;">Get early access to apparel + show dates.</p>
+        <a href="#" class="btn btn--uv btn--sm" style="margin-top:10px;">Join →</a>
+      </div>
+    </div>
+    <div class="foot__bottom">
+      <span>© <span data-year>2026</span> GHOST PEPPER · Blue-Flame Designs</span>
+      <span>Built in fire · Wear the burn</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+<script>
+(function () {
+  // ── Helpers ──────────────────────────────────────────────────────────
+  const grid       = document.getElementById('product-grid');
+  const filterBar  = document.getElementById('filter-bar');
+  const countEl    = document.getElementById('filter-count');
+  const emptyEl    = document.getElementById('filter-empty');
+  let   activeFilter = 'all';
+
+  // badge → tag variant
+  const badgeClass = { HOT:'tag--fire', NEW:'tag--uv', FLOW:'tag--blue', ART:'tag--blue' };
+
+  function buildSizeOptions(sizes) {
+    return sizes.map(s => `<option value="${s}">${s}</option>`).join('');
+  }
+
+  function cardHTML(p) {
+    const badge = p.badge
+      ? `<span class="tag ${badgeClass[p.badge] || 'tag--fire'} card-badge">${p.badge}</span>`
+      : '';
+    return `
+      <article class="card reveal" data-product="${p.id}" data-name="${p.name}" data-price="${p.price}" data-category="${p.category}">
+        <div class="card__media">
+          <div class="ph" data-label="${p.name}"></div>
+          ${badge}
+        </div>
+        <div class="card__body">
+          <div class="flex between items-center" style="gap:8px; flex-wrap:wrap;">
+            <h3 style="font-size:clamp(1.1rem,2vw,1.55rem); line-height:1.1;">${p.name}</h3>
+            <span class="price">$${p.price.toFixed(2)}</span>
+          </div>
+          <span class="tag" style="margin-top:8px; display:inline-block;">${p.category}</span>
+          <p class="lede" style="font-size:.88rem; margin-top:8px; line-height:1.45;">${p.blurb}</p>
+          <div class="size-row" style="margin-top:12px;">
+            <label for="size-${p.id}" style="font-family:var(--mono); font-size:.68rem; letter-spacing:.22em; color:var(--muted); display:block; margin-bottom:5px; text-transform:uppercase;">Size</label>
+            <select id="size-${p.id}" data-size class="size-select" aria-label="Select size for ${p.name}">
+              ${buildSizeOptions(p.sizes)}
+            </select>
+          </div>
+          <div class="flex gap wrapf" style="margin-top:14px;">
+            <button class="btn btn--fill btn--sm" data-add="${p.id}" data-name="${p.name}" data-price="${p.price}">Add to Cart</button>
+            <a href="product.html?id=${p.id}" class="btn btn--ghost btn--sm">Details</a>
+          </div>
+        </div>
+      </article>`;
+  }
+
+  // ── Render ────────────────────────────────────────────────────────────
+  const revealIO = new IntersectionObserver(
+    es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealIO.unobserve(e.target); } }),
+    { threshold: 0.08 }
+  );
+
+  function render(filter) {
+    const products = (filter === 'all')
+      ? window.GP_PRODUCTS
+      : window.GP_PRODUCTS.filter(p => p.category === filter);
+
+    if (!products.length) {
+      grid.innerHTML = '';
+      emptyEl.style.display = 'block';
+      countEl.textContent = '';
+      return;
+    }
+
+    emptyEl.style.display = 'none';
+    grid.innerHTML = products.map(cardHTML).join('');
+
+    const noun = products.length === 1 ? 'item' : 'items';
+    countEl.textContent = `${products.length} ${noun}${filter !== 'all' ? ' in ' + filter : ''}`;
+
+    grid.querySelectorAll('.reveal').forEach(el => { el.classList.remove('in'); revealIO.observe(el); });
+  }
+
+  // ── Filter bar clicks ─────────────────────────────────────────────────
+  filterBar.addEventListener('click', e => {
+    const btn = e.target.closest('[data-filter]');
+    if (!btn) return;
+    filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.filter;
+    render(activeFilter);
+  });
+
+  // ── Cart drawer / overlay sync ────────────────────────────────────────
+  // cart.js already toggles [data-cart-drawer].open; we mirror that to .overlay
+  const overlay = document.querySelector('.overlay');
+  document.addEventListener('click', e => {
+    if (e.target.closest('[data-cart-open]'))  overlay?.classList.add('open');
+    if (e.target.closest('[data-cart-close]')) overlay?.classList.remove('open');
+  });
+
+  // ── Init ──────────────────────────────────────────────────────────────
+  if (window.GP_PRODUCTS) {
+    render('all');
+  } else {
+    grid.innerHTML = '<p style="color:var(--muted); font-family:var(--mono);">Products loading…</p>';
+  }
+
+  // initial page reveals (hero, filter bar, etc.)
+  document.querySelectorAll('.reveal:not(#product-grid .reveal)').forEach(el => revealIO.observe(el));
+})();
+</script>
+
+<style>
+/* ── Shop hero local flourish ── */
+.shop-hero__bg {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    radial-gradient(80% 140% at 85% 0%,   rgba(255,94,26,.22), transparent 55%),
+    radial-gradient(60% 100% at 10% 90%,  rgba(0,179,255,.18), transparent 55%),
+    radial-gradient(50% 80%  at 50% 50%,  rgba(176,38,255,.10), transparent 60%);
+  animation: hueShift 30s linear infinite; mix-blend-mode: screen;
+}
+
+/* ── Filter bar ── */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 18px 0 6px;
+}
+.filter-btn {
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  padding: 7px 18px;
+  border-radius: 50px;
+  border: 1px solid rgba(255,255,255,.18);
+  color: var(--bone-dim);
+  background: transparent;
+  cursor: pointer;
+  transition: .22s ease;
+}
+.filter-btn:hover {
+  border-color: var(--ember);
+  color: var(--bone);
+  box-shadow: 0 0 10px -2px rgba(255,94,26,.4);
+}
+.filter-btn.active {
+  border-color: var(--ember);
+  background: rgba(255,94,26,.15);
+  color: var(--ember);
+  box-shadow: 0 0 14px -3px rgba(255,94,26,.45);
+}
+
+/* ── Filter count line ── */
+.filter-count {
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── Empty state ── */
+.filter-empty {
+  font-family: var(--mono);
+  font-size: .9rem;
+  color: var(--muted);
+  text-align: center;
+  padding: 60px 0;
+}
+
+/* ── Card badge (positioned over image) ── */
+.card-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+}
+
+/* ── Size select ── */
+.size-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: var(--void-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23b9b4a8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 12px center;
+  border: 1px solid rgba(255,255,255,.16);
+  color: var(--bone);
+  font-family: var(--mono);
+  font-size: .78rem;
+  letter-spacing: .1em;
+  padding: 8px 36px 8px 13px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: .2s;
+}
+.size-select:focus,
+.size-select:hover {
+  outline: none;
+  border-color: var(--ember);
+  box-shadow: 0 0 10px -3px rgba(255,94,26,.45);
+}
+.size-select option {
+  background: var(--char);
+  color: var(--bone);
+}
+</style>
+</body>
+</html>

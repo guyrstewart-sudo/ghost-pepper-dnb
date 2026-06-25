@@ -1,0 +1,1911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GHOST PEPPER — Brand Portfolio Book 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* ── TOKENS ── */
+:root {
+  --void: #05050a;
+  --char: #12121c;
+  --ember: #ff5e1a;
+  --pepper: #e11212;
+  --blue-flame: #00b3ff;
+  --deep-blue: #1e63ff;
+  --uv-green: #39ff14;
+  --plasma: #b026ff;
+  --bone: #f5f0e6;
+  --bone-dim: #9a9488;
+  --smoke: #1b1b28;
+  --ash: #2a2a3a;
+  --display: 'Bebas Neue', Impact, sans-serif;
+  --body: 'Rajdhani', 'Segoe UI', sans-serif;
+  --mono: 'Space Mono', monospace;
+  --glow-ember: 0 0 24px rgba(255,94,26,.7), 0 0 64px rgba(255,94,26,.3);
+  --glow-uv: 0 0 20px rgba(57,255,20,.7), 0 0 56px rgba(57,255,20,.3);
+  --glow-blue: 0 0 20px rgba(0,179,255,.7), 0 0 56px rgba(0,179,255,.3);
+  --glow-plasma: 0 0 20px rgba(176,38,255,.7), 0 0 56px rgba(176,38,255,.3);
+  --maxw: 1100px;
+  --r: 12px;
+}
+
+/* ── RESET ── */
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--void);
+  color: var(--bone);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--ember); text-decoration: none; }
+
+/* ── LAYOUT ── */
+.wrap { width: min(var(--maxw), 92vw); margin-inline: auto; }
+section { position: relative; }
+
+/* ── TYPE HELPERS ── */
+h1,h2,h3,h4 { font-family: var(--display); font-weight: 400; line-height: .93; letter-spacing: 1px; }
+h1 { font-size: clamp(3.5rem, 12vw, 9rem); }
+h2 { font-size: clamp(2.4rem, 7vw, 5.5rem); }
+h3 { font-size: clamp(1.6rem, 4vw, 2.8rem); }
+h4 { font-size: clamp(1.2rem, 2.5vw, 1.8rem); }
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .44em;
+  text-transform: uppercase;
+  color: var(--ember);
+  display: inline-flex; align-items: center; gap: 10px;
+  margin-bottom: 1.2rem;
+}
+.eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--ember); flex-shrink: 0; }
+
+.lede { font-size: clamp(1rem, 1.6vw, 1.22rem); color: var(--bone-dim); max-width: 62ch; line-height: 1.75; }
+.mono { font-family: var(--mono); }
+.small-mono { font-family: var(--mono); font-size: .7rem; letter-spacing: .1em; color: var(--bone-dim); }
+
+.t-fire { background: linear-gradient(100deg,#ffd27a,var(--ember),var(--pepper)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.t-uv { color: var(--uv-green); text-shadow: var(--glow-uv); }
+.t-blue { color: var(--blue-flame); text-shadow: var(--glow-blue); }
+.t-plasma { background: linear-gradient(100deg,var(--blue-flame),var(--plasma)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.t-bone { color: var(--bone); }
+
+/* ── DIVIDERS ── */
+.divider {
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--ember), var(--plasma), var(--blue-flame), transparent);
+  opacity: .55;
+  margin: 0;
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal { opacity: 0; transform: translateY(36px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ─────────────────────────────────────────────
+   1. COVER
+───────────────────────────────────────────── */
+#cover {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center;
+  padding: 80px 24px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(900px 700px at 50% 40%, rgba(255,94,26,.18), transparent 60%),
+    radial-gradient(700px 600px at 20% 80%, rgba(176,38,255,.16), transparent 60%),
+    radial-gradient(700px 600px at 80% 10%, rgba(0,179,255,.13), transparent 60%),
+    var(--void);
+}
+#cover::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(0deg, rgba(255,255,255,.4) 0 1px, transparent 1px 4px);
+  opacity: .03; pointer-events: none;
+}
+.cover-logo {
+  width: clamp(120px, 22vw, 220px);
+  margin-bottom: 2rem;
+  filter: drop-shadow(0 0 32px rgba(255,94,26,.6)) drop-shadow(0 0 80px rgba(255,94,26,.25));
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+.cover-title { letter-spacing: 4px; margin-bottom: .3rem; }
+.cover-sub {
+  font-family: var(--mono);
+  font-size: clamp(.7rem, 1.4vw, .95rem);
+  letter-spacing: .4em;
+  color: var(--bone-dim);
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+}
+.cover-tagline {
+  font-family: var(--display);
+  font-size: clamp(1.4rem, 3.5vw, 2.6rem);
+  margin-bottom: .6rem;
+}
+.cover-secondary {
+  font-family: var(--mono);
+  font-size: clamp(.78rem, 1.5vw, 1rem);
+  letter-spacing: .25em;
+  color: var(--bone-dim);
+  margin-bottom: 3rem;
+}
+.cover-artist {
+  font-family: var(--body);
+  font-size: clamp(.9rem, 1.8vw, 1.1rem);
+  font-weight: 600;
+  letter-spacing: .08em;
+  color: var(--bone-dim);
+  margin-bottom: .3rem;
+}
+.cover-year {
+  font-family: var(--mono);
+  font-size: .75rem;
+  letter-spacing: .35em;
+  color: var(--ash);
+  text-transform: uppercase;
+}
+.cover-scroll {
+  position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+  font-family: var(--mono); font-size: .65rem; letter-spacing: .35em;
+  color: var(--ash); text-transform: uppercase;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+}
+.cover-scroll::after {
+  content: ""; width: 1px; height: 40px;
+  background: linear-gradient(var(--ember), transparent);
+  animation: scrollline 1.8s ease-in-out infinite;
+}
+@keyframes scrollline { 0%,100%{opacity:.2} 50%{opacity:1} }
+
+/* ─────────────────────────────────────────────
+   2. CONTENTS
+───────────────────────────────────────────── */
+#contents {
+  background: var(--char);
+  padding: clamp(60px,9vw,120px) 0;
+}
+.contents-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 2px;
+  margin-top: 2.5rem;
+}
+.contents-item {
+  background: rgba(255,255,255,.02);
+  border: 1px solid rgba(255,255,255,.05);
+  padding: 1.4rem 1.6rem;
+  display: flex; align-items: flex-start; gap: 1rem;
+  transition: background .2s;
+}
+.contents-item:hover { background: rgba(255,94,26,.06); }
+.contents-num {
+  font-family: var(--mono);
+  font-size: .68rem;
+  color: var(--ember);
+  padding-top: .35rem;
+  min-width: 1.8rem;
+  flex-shrink: 0;
+}
+.contents-label { font-family: var(--display); font-size: 1.35rem; line-height: 1.1; }
+.contents-desc { font-size: .82rem; color: var(--bone-dim); margin-top: .2rem; }
+
+/* ─────────────────────────────────────────────
+   3. BRAND STORY
+───────────────────────────────────────────── */
+#story {
+  padding: clamp(70px,10vw,130px) 0;
+  background:
+    radial-gradient(800px 600px at 85% 50%, rgba(255,94,26,.1), transparent 55%),
+    var(--void);
+}
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+@media (max-width: 700px) { .story-grid { grid-template-columns: 1fr; } }
+.story-jackalope {
+  font-family: var(--display);
+  font-size: clamp(4rem, 14vw, 10rem);
+  line-height: .85;
+  color: rgba(255,94,26,.08);
+  user-select: none;
+  pointer-events: none;
+  position: absolute;
+  right: -2rem; top: 50%;
+  transform: translateY(-50%);
+}
+.story-pull {
+  font-family: var(--display);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.05;
+  margin: 2rem 0;
+  border-left: 3px solid var(--ember);
+  padding-left: 1.4rem;
+}
+.story-body p { margin-bottom: 1.1rem; color: var(--bone-dim); }
+.story-body p strong { color: var(--bone); font-weight: 600; }
+.pillars {
+  display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 2rem;
+}
+.pillar {
+  flex: 1; min-width: 140px;
+  padding: 1.4rem;
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: var(--r);
+  background: rgba(255,255,255,.025);
+  text-align: center;
+}
+.pillar-icon { font-size: 2rem; margin-bottom: .6rem; }
+.pillar-name { font-family: var(--display); font-size: 1.6rem; }
+.pillar-desc { font-size: .82rem; color: var(--bone-dim); margin-top: .3rem; }
+
+/* ─────────────────────────────────────────────
+   4. BRAND PERSONALITY
+───────────────────────────────────────────── */
+#personality {
+  background: var(--char);
+  padding: clamp(70px,10vw,130px) 0;
+}
+.trait-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.2rem;
+  margin-top: 2.5rem;
+}
+.trait-card {
+  padding: 2rem 1.8rem;
+  border-radius: var(--r);
+  border: 1px solid rgba(255,255,255,.06);
+  background: rgba(255,255,255,.02);
+  position: relative; overflow: hidden;
+}
+.trait-card::before {
+  content: "";
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+}
+.trait-card.c-ember::before { background: var(--ember); box-shadow: var(--glow-ember); }
+.trait-card.c-pepper::before { background: var(--pepper); }
+.trait-card.c-blue::before { background: var(--blue-flame); box-shadow: var(--glow-blue); }
+.trait-card.c-uv::before { background: var(--uv-green); box-shadow: var(--glow-uv); }
+.trait-card.c-plasma::before { background: var(--plasma); box-shadow: var(--glow-plasma); }
+.trait-card.c-bone::before { background: var(--bone); }
+.trait-name { font-family: var(--display); font-size: 2rem; margin-bottom: .5rem; }
+.trait-body { color: var(--bone-dim); font-size: .9rem; line-height: 1.65; }
+
+.voice-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+  margin-top: 2rem;
+}
+@media (max-width: 600px) { .voice-grid { grid-template-columns: 1fr; } }
+.voice-card {
+  padding: 1.5rem 1.6rem;
+  border-radius: var(--r);
+  border: 1px solid;
+}
+.voice-card.do {
+  border-color: rgba(57,255,20,.25);
+  background: rgba(57,255,20,.04);
+}
+.voice-card.dont {
+  border-color: rgba(225,18,18,.25);
+  background: rgba(225,18,18,.04);
+}
+.voice-label {
+  font-family: var(--mono);
+  font-size: .65rem;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  margin-bottom: .8rem;
+}
+.voice-card.do .voice-label { color: var(--uv-green); }
+.voice-card.dont .voice-label { color: var(--pepper); }
+.voice-example { font-size: .92rem; line-height: 1.65; color: var(--bone-dim); }
+.voice-example em { color: var(--bone); font-style: normal; font-weight: 600; }
+
+/* ─────────────────────────────────────────────
+   5. POSITIONING
+───────────────────────────────────────────── */
+#positioning {
+  padding: clamp(70px,10vw,130px) 0;
+  background:
+    radial-gradient(700px 500px at 10% 60%, rgba(0,179,255,.1), transparent 55%),
+    var(--void);
+}
+.pos-statement {
+  font-family: var(--display);
+  font-size: clamp(2rem, 5.5vw, 4.2rem);
+  line-height: 1.05;
+  max-width: 18ch;
+  margin: 1.5rem 0 2.5rem;
+}
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.aud-chip {
+  padding: .9rem 1.2rem;
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 100px;
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  display: flex; align-items: center; gap: .6rem;
+  background: rgba(255,255,255,.02);
+}
+.aud-chip span { font-size: 1.2rem; }
+.pillar-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: var(--r);
+  overflow: hidden;
+  margin-top: 2rem;
+}
+.pillar-col {
+  padding: 2rem 1.6rem;
+  border-right: 1px solid rgba(255,255,255,.07);
+}
+.pillar-col:last-child { border-right: none; }
+.pillar-col h4 { font-size: 1.9rem; margin-bottom: .7rem; }
+.pillar-col p { color: var(--bone-dim); font-size: .88rem; line-height: 1.7; }
+@media(max-width:650px){ .pillar-bar{grid-template-columns:1fr;} .pillar-col{border-right:none;border-bottom:1px solid rgba(255,255,255,.07);} }
+
+/* ─────────────────────────────────────────────
+   6. LOGO & MARK
+───────────────────────────────────────────── */
+#logo {
+  background: var(--char);
+  padding: clamp(70px,10vw,130px) 0;
+}
+.logo-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+}
+@media(max-width:600px){.logo-showcase{grid-template-columns:1fr;}}
+.logo-tile {
+  border-radius: var(--r);
+  padding: 3rem 2rem;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 1.4rem; text-align: center;
+  border: 1px solid rgba(255,255,255,.06);
+}
+.logo-tile.dark-bg { background: var(--void); }
+.logo-tile.light-bg { background: var(--bone); }
+.logo-tile.char-bg { background: var(--char); }
+.logo-tile svg { width: clamp(80px,14vw,130px); height: auto; }
+.wordmark {
+  display: flex; flex-direction: column; align-items: center;
+}
+.wordmark-main {
+  font-family: var(--display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  letter-spacing: .06em;
+  line-height: .95;
+}
+.wordmark-kicker {
+  font-family: var(--mono);
+  font-size: clamp(.55rem, 1.2vw, .75rem);
+  letter-spacing: .4em;
+  text-transform: uppercase;
+  margin-top: .35rem;
+}
+.logo-tile.light-bg .wordmark-main,
+.logo-tile.light-bg .wordmark-kicker { color: var(--void); }
+.logo-tile.light-bg .wordmark-kicker { color: #555; }
+
+.construction-box {
+  background: rgba(255,255,255,.02);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: var(--r);
+  padding: 2rem;
+  margin: 2rem 0;
+}
+.construction-box h4 { margin-bottom: 1rem; }
+.construction-box ul { list-style: disc; padding-left: 1.5rem; color: var(--bone-dim); }
+.construction-box li { margin-bottom: .5rem; font-size: .9rem; line-height: 1.65; }
+.construction-box li strong { color: var(--bone); }
+
+.donts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.dont-card {
+  padding: 1.2rem 1.4rem;
+  border: 1px solid rgba(225,18,18,.25);
+  border-radius: var(--r);
+  background: rgba(225,18,18,.04);
+}
+.dont-card .mono { font-size: .65rem; letter-spacing: .3em; color: var(--pepper); margin-bottom: .4rem; text-transform: uppercase; }
+.dont-card p { font-size: .85rem; color: var(--bone-dim); }
+
+/* ─────────────────────────────────────────────
+   7. COLOR SYSTEM
+───────────────────────────────────────────── */
+#colors {
+  padding: clamp(70px,10vw,130px) 0;
+  background: var(--void);
+}
+.swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px,1fr));
+  gap: 1rem;
+  margin: 2.5rem 0;
+}
+.swatch {
+  border-radius: var(--r);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.06);
+}
+.swatch-color { height: 110px; }
+.swatch-info { padding: .9rem 1rem; background: var(--char); }
+.swatch-name { font-family: var(--display); font-size: 1.2rem; margin-bottom: .1rem; }
+.swatch-hex { font-family: var(--mono); font-size: .72rem; color: var(--bone-dim); }
+.swatch-role { font-size: .75rem; color: var(--bone-dim); margin-top: .25rem; }
+
+.gradient-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.grad-chip {
+  height: 70px;
+  border-radius: var(--r);
+  display: flex; align-items: flex-end;
+  padding: .7rem 1rem;
+  font-family: var(--mono);
+  font-size: .65rem;
+  letter-spacing: .12em;
+  color: rgba(255,255,255,.7);
+}
+
+.uv-note {
+  margin-top: 2rem;
+  padding: 1.5rem 1.8rem;
+  border: 1px solid rgba(57,255,20,.25);
+  border-radius: var(--r);
+  background: rgba(57,255,20,.04);
+  display: flex; gap: 1.2rem; align-items: flex-start;
+}
+.uv-note-icon { font-size: 2rem; flex-shrink: 0; }
+.uv-note-text h4 { font-family: var(--display); font-size: 1.4rem; color: var(--uv-green); text-shadow: var(--glow-uv); margin-bottom: .4rem; }
+.uv-note-text p { color: var(--bone-dim); font-size: .88rem; line-height: 1.7; }
+
+/* ─────────────────────────────────────────────
+   8. TYPOGRAPHY
+───────────────────────────────────────────── */
+#typography {
+  background: var(--char);
+  padding: clamp(70px,10vw,130px) 0;
+}
+.type-specimen {
+  padding: 2.5rem;
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: var(--r);
+  background: rgba(255,255,255,.02);
+  margin-bottom: 2rem;
+}
+.type-spec-label {
+  font-family: var(--mono);
+  font-size: .65rem;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin-bottom: 1.2rem;
+}
+.type-sample-bebas { font-family: 'Bebas Neue', sans-serif; }
+.type-sample-raj { font-family: 'Rajdhani', sans-serif; }
+.type-sample-mono { font-family: 'Space Mono', monospace; }
+.scale-row {
+  display: flex; align-items: baseline; gap: 1rem;
+  margin-bottom: .5rem;
+  border-bottom: 1px solid rgba(255,255,255,.04);
+  padding-bottom: .5rem;
+  flex-wrap: wrap;
+}
+.scale-size { font-family: var(--mono); font-size: .62rem; color: var(--bone-dim); min-width: 3.5rem; flex-shrink: 0; }
+.type-meta { color: var(--bone-dim); font-size: .82rem; margin-top: 1rem; line-height: 1.65; }
+
+/* ─────────────────────────────────────────────
+   9. IMAGERY
+───────────────────────────────────────────── */
+#imagery {
+  padding: clamp(70px,10vw,130px) 0;
+  background: var(--void);
+}
+.mood-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: .8rem;
+  margin-top: 2rem;
+}
+@media(max-width:600px){.mood-grid{grid-template-columns:1fr 1fr;}}
+.mood-tile {
+  aspect-ratio: 4/3;
+  border-radius: var(--r);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 1rem;
+  position: relative; overflow: hidden;
+  border: 1px solid rgba(255,255,255,.06);
+}
+.mood-tile::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(5,5,10,.9) 0%, transparent 50%);
+}
+.mood-label {
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--bone);
+  position: relative; z-index: 1;
+}
+.mood-sub {
+  font-size: .75rem;
+  color: var(--bone-dim);
+  position: relative; z-index: 1;
+  margin-top: .15rem;
+}
+
+/* mood tile backgrounds */
+.mt1 { background: radial-gradient(at 40% 50%, #ff5e1a 0%, #e11212 40%, #05050a 75%); }
+.mt2 { background: radial-gradient(at 60% 30%, #00b3ff 0%, #1e63ff 50%, #05050a 80%); }
+.mt3 { background: radial-gradient(at 50% 60%, #b026ff 0%, #39ff14 60%, #05050a 90%); }
+.mt4 { background: radial-gradient(at 30% 40%, #39ff14 0%, #00b3ff 50%, #05050a 80%); }
+.mt5 { background: radial-gradient(at 50% 50%, #ff5e1a 0%, #b026ff 50%, #05050a 85%); }
+.mt6 { background: radial-gradient(at 70% 30%, #ffd27a 0%, #ff5e1a 40%, #05050a 75%); }
+
+.photo-principles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.photo-principle {
+  padding: 1.3rem 1.5rem;
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: var(--r);
+  background: rgba(255,255,255,.02);
+}
+.photo-principle h4 { font-family: var(--display); font-size: 1.4rem; margin-bottom: .4rem; }
+.photo-principle p { font-size: .85rem; color: var(--bone-dim); line-height: 1.65; }
+
+/* ─────────────────────────────────────────────
+   10. APPAREL
+───────────────────────────────────────────── */
+#apparel {
+  background: var(--char);
+  padding: clamp(70px,10vw,130px) 0;
+}
+.apparel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+  gap: 1.2rem;
+  margin-top: 2rem;
+}
+.apparel-card {
+  padding: 1.6rem;
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: var(--r);
+  background: rgba(255,255,255,.02);
+}
+.apparel-icon { font-size: 2.2rem; margin-bottom: .8rem; }
+.apparel-cat { font-family: var(--display); font-size: 1.5rem; margin-bottom: .4rem; }
+.apparel-items { font-size: .82rem; color: var(--bone-dim); line-height: 1.75; }
+.naming-row {
+  display: flex; flex-wrap: wrap; gap: .6rem;
+  margin-top: 1.8rem;
+}
+.name-chip {
+  padding: .4rem .9rem;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 100px;
+  font-family: var(--mono);
+  font-size: .7rem;
+  letter-spacing: .1em;
+  color: var(--bone-dim);
+}
+
+/* ─────────────────────────────────────────────
+   11. APPLICATIONS
+───────────────────────────────────────────── */
+#applications {
+  padding: clamp(70px,10vw,130px) 0;
+  background:
+    radial-gradient(800px 600px at 80% 20%, rgba(176,38,255,.12), transparent 55%),
+    var(--void);
+}
+.apps-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+@media(max-width:700px){.apps-grid{grid-template-columns:1fr;}}
+
+/* TEE MOCKUP */
+.mockup-tee {
+  background: var(--char);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: var(--r);
+  padding: 2rem;
+  display: flex; flex-direction: column; align-items: center; gap: 1rem;
+}
+.tee-body {
+  width: 180px; height: 210px;
+  background: #1a1a2a;
+  border-radius: 6px 6px 12px 12px;
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(255,255,255,.1);
+}
+.tee-body::before, .tee-body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 40px; height: 28px;
+  background: #1a1a2a;
+  border: 1px solid rgba(255,255,255,.1);
+}
+.tee-body::before { left: -38px; border-radius: 0 0 0 8px; transform: rotate(-8deg) translateY(-4px); }
+.tee-body::after { right: -38px; border-radius: 0 0 8px 0; transform: rotate(8deg) translateY(-4px); }
+.tee-print {
+  display: flex; flex-direction: column; align-items: center; gap: .4rem; text-align: center;
+}
+.tee-print svg { width: 48px; filter: drop-shadow(0 0 10px rgba(255,94,26,.6)); }
+.tee-print-text { font-family: var(--display); font-size: 1.2rem; line-height: .95; }
+.tee-print-kicker { font-family: var(--mono); font-size: .48rem; letter-spacing: .3em; color: rgba(255,255,255,.5); }
+.mockup-label { font-family: var(--mono); font-size: .65rem; letter-spacing: .3em; color: var(--bone-dim); text-align: center; text-transform: uppercase; }
+
+/* POSTER MOCKUP */
+.mockup-poster {
+  background: var(--void);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: var(--r);
+  overflow: hidden;
+  position: relative;
+}
+.poster-inner {
+  background:
+    radial-gradient(at 50% 30%, rgba(255,94,26,.35) 0%, rgba(176,38,255,.25) 40%, transparent 70%),
+    radial-gradient(at 80% 70%, rgba(0,179,255,.2) 0%, transparent 50%),
+    var(--void);
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+.poster-inner svg { width: 70px; margin: 0 auto 1.2rem; filter: drop-shadow(0 0 18px rgba(255,94,26,.7)); }
+.poster-title { font-family: var(--display); font-size: clamp(2.2rem,6vw,3.8rem); line-height: .9; margin-bottom: .5rem; }
+.poster-sub { font-family: var(--mono); font-size: .7rem; letter-spacing: .35em; color: var(--bone-dim); margin-bottom: 1.4rem; text-transform: uppercase; }
+.poster-tagline { font-family: var(--display); font-size: clamp(1.4rem,3vw,2rem); margin-bottom: 1.2rem; }
+.poster-details {
+  font-family: var(--mono);
+  font-size: .7rem;
+  letter-spacing: .12em;
+  color: var(--bone-dim);
+  border-top: 1px solid rgba(255,255,255,.08);
+  padding-top: 1.2rem;
+}
+.poster-glow-bar {
+  height: 3px;
+  background: linear-gradient(90deg, var(--plasma), var(--ember), var(--blue-flame));
+  box-shadow: 0 0 12px rgba(255,94,26,.5);
+}
+
+/* INSTAGRAM TILE */
+.mockup-ig {
+  background: var(--char);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: var(--r);
+  padding: 1.5rem;
+}
+.ig-tile {
+  aspect-ratio: 1;
+  border-radius: 8px;
+  background:
+    radial-gradient(at 35% 35%, rgba(255,94,26,.5) 0%, rgba(176,38,255,.3) 50%, var(--void) 80%);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: .8rem; text-align: center; padding: 1.5rem;
+  position: relative; overflow: hidden;
+  border: 1px solid rgba(255,255,255,.08);
+}
+.ig-tile::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(45deg, rgba(255,255,255,.015) 0 1px, transparent 1px 8px);
+}
+.ig-tile svg { width: 56px; position: relative; z-index:1; filter: drop-shadow(0 0 14px rgba(255,94,26,.7)); }
+.ig-tile-handle { font-family: var(--mono); font-size: .72rem; letter-spacing: .2em; color: rgba(255,255,255,.6); position: relative; z-index:1; }
+.ig-tile-cta { font-family: var(--display); font-size: clamp(1.4rem,4vw,2.2rem); line-height: .95; position: relative; z-index:1; }
+
+/* STREAM OVERLAY */
+.mockup-stream {
+  background: var(--char);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: var(--r);
+  padding: 1.5rem;
+}
+.stream-frame {
+  aspect-ratio: 16/9;
+  background: #050508;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,.08);
+  position: relative; overflow: hidden;
+}
+.stream-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(at 50% 40%, rgba(255,94,26,.15) 0%, transparent 60%),
+    radial-gradient(at 80% 80%, rgba(0,179,255,.12) 0%, transparent 50%),
+    #050508;
+}
+.stream-top-bar {
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--ember), var(--plasma), var(--blue-flame));
+}
+.stream-logo {
+  position: absolute; top: 12px; left: 14px;
+  display: flex; align-items: center; gap: 8px;
+}
+.stream-logo svg { width: 28px; }
+.stream-logo-text { font-family: var(--display); font-size: 1rem; letter-spacing: .05em; }
+.stream-live-badge {
+  position: absolute; top: 12px; right: 14px;
+  font-family: var(--mono); font-size: .55rem; letter-spacing: .2em;
+  background: var(--pepper); color: white;
+  padding: .2rem .5rem; border-radius: 3px;
+  text-transform: uppercase;
+  animation: blink 1.5s ease-in-out infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.4} }
+.stream-bpm {
+  position: absolute; bottom: 14px; right: 14px;
+  font-family: var(--mono); font-size: .6rem; letter-spacing: .15em;
+  color: rgba(255,255,255,.5);
+}
+.stream-track {
+  position: absolute; bottom: 14px; left: 14px;
+  font-family: var(--mono); font-size: .55rem; letter-spacing: .1em;
+  color: rgba(255,255,255,.4);
+}
+.stream-waveform {
+  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 2px;
+}
+.wave-bar {
+  width: 3px; border-radius: 2px;
+  background: var(--ember);
+  opacity: .6;
+  animation: waveanim 1.2s ease-in-out infinite;
+}
+.wave-bar:nth-child(1) { height: 12px; animation-delay: 0s; }
+.wave-bar:nth-child(2) { height: 20px; animation-delay: .1s; }
+.wave-bar:nth-child(3) { height: 28px; animation-delay: .2s; }
+.wave-bar:nth-child(4) { height: 16px; animation-delay: .3s; }
+.wave-bar:nth-child(5) { height: 24px; animation-delay: .4s; }
+.wave-bar:nth-child(6) { height: 32px; animation-delay: .5s; }
+.wave-bar:nth-child(7) { height: 18px; animation-delay: .6s; }
+.wave-bar:nth-child(8) { height: 26px; animation-delay: .7s; }
+.wave-bar:nth-child(9) { height: 14px; animation-delay: .8s; }
+@keyframes waveanim { 0%,100%{transform:scaleY(.4)} 50%{transform:scaleY(1)} }
+
+/* ─────────────────────────────────────────────
+   12. WEB / DIGITAL
+───────────────────────────────────────────── */
+#digital {
+  background: var(--char);
+  padding: clamp(70px,10vw,130px) 0;
+}
+.site-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px,1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.site-section-card {
+  padding: 1.4rem;
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: var(--r);
+  background: rgba(255,255,255,.02);
+  position: relative; overflow: hidden;
+}
+.site-section-card::before {
+  content: "";
+  position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+  background: var(--ember);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .3s;
+}
+.site-section-card:hover::before { transform: scaleX(1); }
+.site-num { font-family: var(--mono); font-size: .62rem; color: var(--ember); margin-bottom: .5rem; letter-spacing: .2em; }
+.site-name { font-family: var(--display); font-size: 1.5rem; margin-bottom: .4rem; }
+.site-desc { font-size: .82rem; color: var(--bone-dim); line-height: 1.6; }
+
+/* ─────────────────────────────────────────────
+   13. CLOSER
+───────────────────────────────────────────── */
+#closer {
+  min-height: 70vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center;
+  padding: clamp(80px,12vw,150px) 24px;
+  background:
+    radial-gradient(900px 700px at 50% 50%, rgba(255,94,26,.2), transparent 60%),
+    radial-gradient(600px 500px at 20% 80%, rgba(176,38,255,.15), transparent 60%),
+    radial-gradient(600px 500px at 80% 20%, rgba(0,179,255,.13), transparent 60%),
+    var(--void);
+  position: relative; overflow: hidden;
+}
+.closer-tagline {
+  font-family: var(--display);
+  font-size: clamp(3rem, 12vw, 8rem);
+  line-height: .9;
+  margin-bottom: .6rem;
+}
+.closer-secondary {
+  font-family: var(--mono);
+  font-size: clamp(.8rem, 1.8vw, 1.1rem);
+  letter-spacing: .35em;
+  color: var(--bone-dim);
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+}
+.contact-grid {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.contact-chip {
+  padding: .7rem 1.4rem;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 100px;
+  font-family: var(--mono);
+  font-size: .75rem;
+  letter-spacing: .15em;
+  color: var(--bone-dim);
+  display: flex; align-items: center; gap: .6rem;
+  transition: border-color .2s, color .2s;
+}
+.contact-chip:hover { border-color: var(--ember); color: var(--bone); }
+.closer-logo {
+  width: clamp(80px,14vw,130px);
+  margin-bottom: 2rem;
+  filter: drop-shadow(0 0 28px rgba(255,94,26,.55));
+}
+.closer-copy {
+  font-family: var(--mono);
+  font-size: .65rem;
+  letter-spacing: .25em;
+  color: var(--ash);
+  margin-top: 4rem;
+  text-transform: uppercase;
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     SHARED SVG LOGO (reused via <use>)
+══════════════════════════════════════════ -->
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gpFlame" x1="0" y1="1" x2="0" y2="0" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#e11212"/>
+      <stop offset=".5" stop-color="#ff5e1a"/>
+      <stop offset="1" stop-color="#ffd27a"/>
+    </linearGradient>
+    <linearGradient id="gpBlue" x1="0" y1="1" x2="1" y2="0" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#1e63ff"/>
+      <stop offset="1" stop-color="#00b3ff"/>
+    </linearGradient>
+  </defs>
+  <symbol id="gpMark" viewBox="0 0 64 64">
+    <path d="M32 3 C20 16 12 27 12 39 a20 20 0 0 0 40 0 C52 27 44 16 32 3 Z"
+          fill="url(#gpFlame)" stroke="#ffd27a" stroke-width=".8"/>
+    <path d="M32 22 C26 30 23 35 23 41 a9 9 0 0 0 18 0 C41 35 38 30 32 22 Z"
+          fill="url(#gpBlue)" opacity=".92"/>
+    <circle cx="27" cy="40" r="2.6" fill="#05050a"/>
+    <circle cx="37" cy="40" r="2.6" fill="#05050a"/>
+    <path d="M32 3 c2 -2 6 -3 8 -2 c-2 2 -4 4 -8 5 Z" fill="#39ff14"/>
+  </symbol>
+</svg>
+
+<!-- ══════════════════════════════════════════
+     1. COVER
+══════════════════════════════════════════ -->
+<section id="cover">
+  <svg class="cover-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <use href="#gpMark"/>
+  </svg>
+  <div class="cover-title">
+    <h1 class="t-fire">GHOST<br>PEPPER</h1>
+  </div>
+  <p class="cover-sub">Brand Portfolio Book</p>
+  <p class="cover-tagline t-fire">Wear the burn.</p>
+  <p class="cover-secondary">Fire &nbsp;·&nbsp; Bass &nbsp;·&nbsp; Ritual</p>
+  <p class="cover-artist">Liliya "Lily" Semenova</p>
+  <p class="cover-artist" style="margin-top:.2rem;font-size:.9rem;letter-spacing:.04em;">ghost.pepper.dnb &nbsp;·&nbsp; Charlotte / Asheville, NC</p>
+  <p class="cover-year">© 2026 — All Rights Reserved</p>
+  <div class="cover-scroll">Scroll</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════
+     2. CONTENTS
+══════════════════════════════════════════ -->
+<section id="contents">
+  <div class="wrap">
+    <span class="eyebrow">Table of Contents</span>
+    <h2 class="t-fire">Inside<br>This Book</h2>
+    <div class="contents-grid reveal">
+      <div class="contents-item">
+        <span class="contents-num">01</span>
+        <div>
+          <div class="contents-label">Brand Story</div>
+          <div class="contents-desc">Origin, mission, the jackalope idea</div>
+        </div>
+      </div>
+      <div class="contents-item">
+        <span class="contents-num">02</span>
+        <div>
+          <div class="contents-label">Personality</div>
+          <div class="contents-desc">Traits, voice, tone, do/don't</div>
+        </div>
+      </div>
+      <div class="contents-item">
+        <span class="contents-num">03</span>
+        <div>
+          <div class="contents-label">Positioning</div>
+          <div class="contents-desc">Statement, audience, pillars</div>
+        </div>
+      </div>
+      <div class="contents-item">
+        <span class="contents-num">04</span>
+        <div>
+          <div class="contents-label">Logo & Mark</div>
+          <div class="contents-desc">Construction, clear space, misuse</div>
+        </div>
+      </div>
+      <div class="contents-item">
+        <span class="contents-num">05</span>
+        <div>
+          <div class="contents-label">Color System</div>
+          <div class="contents-desc">Swatches, gradients, UV note</div>
+        </div>
+      </div>
+      <div class="contents-item">
+        <span class="contents-num">06</span>
+        <div>
+          <div class="contents-label">Typography</div>
+          <div class="contents-desc">Specimens, scale, pairing rules</div>
+        </div>
+      </div>
+      <div class="contents-item">
+        <span class="contents-num">07</span>
+        <div>
+          <div class="contents-label">Imagery</div>
+          <div class="contents-desc">Art direction, mood grid</div>
+        </div>
+      </div>
+      <div class="contents-item">
+        <span class="contents-num">08</span>
+        <div>
+          <div class="contents-label">Apparel</div>
+          <div class="contents-desc">Blue-Flame line, categories, naming</div>
+        </div>
+      </div>
+      <div class="contents-item">
+        <span class="contents-num">09</span>
+        <div>
+          <div class="contents-label">Applications</div>
+          <div class="contents-desc">Tee, poster, IG tile, stream overlay</div>
+        </div>
+      </div>
+      <div class="contents-item">
+        <span class="contents-num">10</span>
+        <div>
+          <div class="contents-label">Web & Digital</div>
+          <div class="contents-desc">Site map, digital standards</div>
+        </div>
+      </div>
+      <div class="contents-item">
+        <span class="contents-num">11</span>
+        <div>
+          <div class="contents-label">Closer</div>
+          <div class="contents-desc">Tagline lockup, contact</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════
+     3. BRAND STORY / ESSENCE
+══════════════════════════════════════════ -->
+<section id="story">
+  <div class="wrap">
+    <span class="eyebrow">01 — Brand Story</span>
+    <div class="story-grid">
+      <div>
+        <h2 class="t-fire">The Jackalope<br>of All Trades</h2>
+        <div class="story-pull reveal">
+          "Heat you feel before<br>you hear it."
+        </div>
+        <div class="story-body reveal">
+          <p>GHOST PEPPER is the creative alias of Liliya "Lily" Semenova — DJ, producer, fire performer, and apparel designer operating out of Charlotte and Asheville, North Carolina. The name says everything: the world's hottest fruit, the one that leaves a mark long after the moment has passed. <strong>Ghost Pepper is the burn that lingers.</strong></p>
+          <p>Lily came up through the festival and rave circuit, where the DJ booth, the fire circle, and the merch table were never separate worlds — they were one continuous ritual. She plays drum &amp; bass at the upper edge of the genre, around 174 BPM, where the groove gets tight enough to feel like controlled chaos. Off the decks, she spins poi, works fire fans, and designs apparel under the <strong>Blue-Flame Designs</strong> imprint — festival-ready pieces that hold up under blacklight and tell a story in the dark.</p>
+          <p>The "jackalope of all trades" phrase captures something real: a creature that shouldn't logically exist but absolutely does. Lily bridges disciplines that rarely overlap — the technical precision of DJ production, the embodied performance of fire arts, and the visual craft of apparel design. The brand is the connective tissue between all three.</p>
+          <p>Ghost Pepper doesn't chase mainstream. <strong>It sets the terms.</strong> It shows up for the people who want the heat, the bass, and the handmade piece they'll still be talking about at the next fest. The brand lives at the intersection of sound, fire, and threads — and it's built to burn.</p>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pillar-icon">🔊</div>
+            <div class="pillar-name t-fire">Sound</div>
+            <div class="pillar-desc">DnB production &amp; DJ sets. ~174 BPM. Precise, relentless, alive.</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🔥</div>
+            <div class="pillar-name t-fire">Fire</div>
+            <div class="pillar-desc">Poi, fans, fire-spinning. Performance as ritual, not spectacle.</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🧵</div>
+            <div class="pillar-name t-fire">Threads</div>
+            <div class="pillar-desc">Blue-Flame Designs. UV-reactive apparel built for the festival floor.</div>
+          </div>
+        </div>
+        <div style="margin-top:2rem;padding:1.8rem;border:1px solid rgba(255,94,26,.2);border-radius:12px;background:rgba(255,94,26,.04);">
+          <div class="small-mono" style="color:var(--ember);letter-spacing:.35em;text-transform:uppercase;margin-bottom:.8rem;">Mission</div>
+          <p style="font-size:1.05rem;line-height:1.75;color:var(--bone-dim);">To create <strong style="color:var(--bone)">visceral experiences</strong> — in sound, in spectacle, in what you wear home — that make the festival moment feel permanent.</p>
+        </div>
+        <div style="margin-top:1.2rem;padding:1.8rem;border:1px solid rgba(0,179,255,.2);border-radius:12px;background:rgba(0,179,255,.04);">
+          <div class="small-mono" style="color:var(--blue-flame);letter-spacing:.35em;text-transform:uppercase;margin-bottom:.8rem;">Also Performs As</div>
+          <p style="font-size:.9rem;color:var(--bone-dim);line-height:1.65;"><strong style="color:var(--bone)">Blue-Flame Designs</strong> (@blueflame.designs) is the apparel-design arm — the commercial face of the creative practice. GHOST PEPPER is the full artist identity: the set, the fire, the fit, the feeling.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════
+     4. BRAND PERSONALITY
+══════════════════════════════════════════ -->
+<section id="personality">
+  <div class="wrap">
+    <span class="eyebrow">02 — Brand Personality</span>
+    <h2>Who We<br><span class="t-fire">Are</span></h2>
+    <p class="lede" style="margin-top:1rem;">Six words. Every creative decision — visual, verbal, sonic — should map back to at least one of them.</p>
+
+    <div class="trait-grid reveal">
+      <div class="trait-card c-ember">
+        <div class="trait-name t-fire">Fierce</div>
+        <div class="trait-body">Ghost Pepper doesn't ask permission. The brand asserts itself — in the mix, in the fire circle, in the design. There's no volume at which this is timid.</div>
+      </div>
+      <div class="trait-card c-blue">
+        <div class="trait-name t-blue">Hypnotic</div>
+        <div class="trait-body">The rhythm, the spinning flame, the blacklight pattern on a hoodie — each one is designed to hold attention. Ghost Pepper locks you in and doesn't let go until it's ready.</div>
+      </div>
+      <div class="trait-card c-uv">
+        <div class="trait-name t-uv">Untamed</div>
+        <div class="trait-body">Not chaotic — intentional. The genre is drum &amp; bass, not noise. But the spirit is feral: untrained by convention, unimpressed by gatekeeping, unbothered by rules that don't serve the work.</div>
+      </div>
+      <div class="trait-card c-plasma">
+        <div class="trait-name t-plasma">Crafted</div>
+        <div class="trait-body">Every stitch, every mix, every fire line is deliberate. This is a polymath's brand, which means the bar for craft is high across all disciplines simultaneously. Sloppy doesn't fit here.</div>
+      </div>
+      <div class="trait-card c-bone">
+        <div class="trait-name">Communal</div>
+        <div class="trait-body">Raves, festivals, and fire circles are inherently collective. Ghost Pepper is born from that culture — the shared warmth of a crowd, the way bass unifies strangers. The brand is for the whole tribe.</div>
+      </div>
+      <div class="trait-card c-pepper">
+        <div class="trait-name" style="color:var(--pepper);">Ritual</div>
+        <div class="trait-body">There's ceremony in the set, in the performance, in putting on the gear. Ghost Pepper treats each moment — the first drop, the first flame, the first wear — as something worth marking.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:4rem;">
+      <span class="eyebrow">Brand Voice</span>
+      <h3 style="margin-bottom:.5rem;">How It <span class="t-fire">Talks</span></h3>
+      <p class="lede" style="margin-bottom:2rem;">Confident. Playful-dark. Ritualistic. Never corporate, never begging, never over-explained.</p>
+      <div class="voice-grid reveal">
+        <div class="voice-card do">
+          <div class="voice-label">✓ Do Say</div>
+          <div class="voice-example"><em>"The burn doesn't wait. Neither do we."</em></div>
+        </div>
+        <div class="voice-card dont">
+          <div class="voice-label">✗ Don't Say</div>
+          <div class="voice-example"><em>"We are excited to announce our new collection!"</em></div>
+        </div>
+        <div class="voice-card do">
+          <div class="voice-label">✓ Do Say</div>
+          <div class="voice-example"><em>"174 BPM. UV ink. Fire at midnight. You know where to find us."</em></div>
+        </div>
+        <div class="voice-card dont">
+          <div class="voice-label">✗ Don't Say</div>
+          <div class="voice-example"><em>"Check out our amazing deals — perfect for festival-goers of all kinds!"</em></div>
+        </div>
+        <div class="voice-card do">
+          <div class="voice-label">✓ Do Say</div>
+          <div class="voice-example"><em>"Ghost Pepper Baby. Wear the burn."</em></div>
+        </div>
+        <div class="voice-card dont">
+          <div class="voice-label">✗ Don't Say</div>
+          <div class="voice-example"><em>"A lifestyle brand for music and fire enthusiasts."</em></div>
+        </div>
+        <div class="voice-card do">
+          <div class="voice-label">✓ Do Say</div>
+          <div class="voice-example"><em>"Fire. Bass. Ritual. — in that order, or all at once."</em></div>
+        </div>
+        <div class="voice-card dont">
+          <div class="voice-label">✗ Don't Say</div>
+          <div class="voice-example"><em>"Please don't hesitate to reach out if you have any questions!"</em></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════
+     5. POSITIONING
+══════════════════════════════════════════ -->
+<section id="positioning">
+  <div class="wrap">
+    <span class="eyebrow">03 — Positioning</span>
+    <p class="pos-statement reveal">
+      <span class="t-fire">The fire-born DJ</span><br>
+      <span>who dresses</span><br>
+      <span class="t-blue">the underground.</span>
+    </p>
+
+    <div style="max-width:700px;margin-bottom:2.5rem;">
+      <p style="color:var(--bone-dim);line-height:1.8;font-size:1rem;">
+        For festival and rave communities, flow-arts performers, DnB heads, and alt-fashion seekers who want more than merchandise — Ghost Pepper is the living brand that plays the set, lights the fire, and designs the gear to wear home. Where other artists pick one lane, Ghost Pepper burns across three and calls it the act.
+      </p>
+    </div>
+
+    <span class="eyebrow">Primary Audience</span>
+    <div class="audience-grid reveal">
+      <div class="aud-chip"><span>🎪</span> Festival / rave goers</div>
+      <div class="aud-chip"><span>🔊</span> Drum &amp; Bass heads</div>
+      <div class="aud-chip"><span>🌀</span> Flow arts community</div>
+      <div class="aud-chip"><span>👁️</span> Psychedelic / UV scene</div>
+      <div class="aud-chip"><span>🧵</span> Alt-fashion seekers</div>
+      <div class="aud-chip"><span>🎭</span> Circus / Cirque-rave tribe</div>
+    </div>
+
+    <div style="margin-top:3rem;">
+      <span class="eyebrow">The Three Pillars</span>
+      <div class="pillar-bar reveal">
+        <div class="pillar-col" style="border-right:1px solid rgba(255,255,255,.07);">
+          <h4 class="t-fire">Sound</h4>
+          <p>Drum &amp; bass at ~174 BPM. DJ sets, live production, SoundCloud releases. The sonic identity is dense, precise, and relentless — bass-heavy sub frequencies anchored by breakbeats that don't let the crowd breathe until they want them to. Ghost Pepper's sound is the ritual itself; the other two pillars orbit it.</p>
+        </div>
+        <div class="pillar-col" style="border-right:1px solid rgba(255,255,255,.07);">
+          <h4 class="t-fire">Fire</h4>
+          <p>Poi, fire fans, and flow performance. Fire spinning at festivals is both art and community signal — it marks the people who go deep. Lily's fire practice is the brand's most visible live expression, the moment the Ghost Pepper mark becomes a living thing. Fire at night, at the edge of the stage, is the brand's most iconic image.</p>
+        </div>
+        <div class="pillar-col">
+          <h4 class="t-fire">Threads</h4>
+          <p>Blue-Flame Designs apparel. UV-reactive tees, hoodies, performance wear, and accessories designed for the festival environment — pieces that look one way under sunlight and transform under blacklight. The apparel line extends the brand into the crowd, making every wearer a walking GHOST PEPPER moment.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════
+     6. LOGO & MARK
+══════════════════════════════════════════ -->
+<section id="logo">
+  <div class="wrap">
+    <span class="eyebrow">04 — Logo &amp; Mark</span>
+    <h2>The <span class="t-fire">Mark</span></h2>
+    <p class="lede" style="margin-top:1rem;">A ghost-pepper fruit rendered as a flame teardrop — pointing up, burning blue from within, watching with two black eyes. Neon-green stem. One symbol, three readings: pepper, ghost, flame.</p>
+
+    <div class="logo-showcase reveal">
+      <!-- On dark -->
+      <div class="logo-tile dark-bg">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 0 20px rgba(255,94,26,.65))">
+          <use href="#gpMark"/>
+        </svg>
+        <div class="wordmark">
+          <div class="wordmark-main t-fire">GHOST PEPPER</div>
+          <div class="wordmark-kicker" style="color:var(--bone-dim);">GHOST.PEPPER.DNB</div>
+        </div>
+        <div class="small-mono" style="margin-top:.5rem;">On Void Black — primary</div>
+      </div>
+      <!-- On char -->
+      <div class="logo-tile char-bg">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 0 16px rgba(255,94,26,.5))">
+          <use href="#gpMark"/>
+        </svg>
+        <div class="wordmark">
+          <div class="wordmark-main" style="color:var(--bone);">GHOST PEPPER</div>
+          <div class="wordmark-kicker" style="color:var(--bone-dim);">GHOST.PEPPER.DNB</div>
+        </div>
+        <div class="small-mono" style="margin-top:.5rem;">On Char — secondary dark</div>
+      </div>
+      <!-- On light -->
+      <div class="logo-tile light-bg">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <use href="#gpMark"/>
+        </svg>
+        <div class="wordmark">
+          <div class="wordmark-main" style="color:var(--void);">GHOST PEPPER</div>
+          <div class="wordmark-kicker" style="color:#555;">GHOST.PEPPER.DNB</div>
+        </div>
+        <div class="small-mono" style="margin-top:.5rem;color:#888;">On Bone — light contexts</div>
+      </div>
+      <!-- Mark only -->
+      <div class="logo-tile dark-bg" style="background:var(--void);">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"
+             style="width:clamp(100px,18vw,160px);filter:drop-shadow(0 0 24px rgba(255,94,26,.7)) drop-shadow(0 0 60px rgba(255,94,26,.3))">
+          <use href="#gpMark"/>
+        </svg>
+        <div class="small-mono" style="margin-top:.5rem;">Mark-only — icon, favicon, sticker</div>
+      </div>
+    </div>
+
+    <div class="construction-box reveal">
+      <h4>Mark Anatomy</h4>
+      <ul>
+        <li><strong>Outer body:</strong> Teardrop flame path — bottom hemisphere is the pepper body, the pointed tip is the flame apex. Filled with a vertical gradient: Pepper Red (#e11212) → Ember Orange (#ff5e1a) → warm gold (#ffd27a). Thin gold stroke reinforces the glow edge.</li>
+        <li><strong>Inner blue flame core:</strong> A smaller teardrop centered inside the body, offset upward. Diagonal gradient: Deep Blue (#1e63ff) → Blue Flame (#00b3ff). Opacity 0.92 — slightly translucent to let the body gradient breathe behind it.</li>
+        <li><strong>Ghost eyes:</strong> Two filled circles in Void Black (#05050a), symmetric at the pepper-hip level. Diameter ~2.6 units (in a 64-unit viewBox). The eyes read as ghost, skull, or anthropomorphic pepper depending on context.</li>
+        <li><strong>Stem:</strong> Small triangular path at the apex, Neon Green / UV Green (#39ff14). The only element that breaks from the warm fire palette — deliberate UV-accent signal.</li>
+        <li><strong>Wordmark:</strong> "GHOST PEPPER" in Bebas Neue, tracked at +6%. Kicker "GHOST.PEPPER.DNB" in Space Mono, tracked at +40%.</li>
+      </ul>
+    </div>
+
+    <div class="construction-box reveal" style="margin-top:1.2rem;">
+      <h4>Clear Space &amp; Sizing</h4>
+      <ul>
+        <li><strong>Clear space:</strong> Minimum clear space on all sides equals the height of the stem element (approx. 1/8 of the mark height). Never crowd the mark with other text or graphic elements.</li>
+        <li><strong>Minimum size — digital:</strong> 32px height for the mark-only; 140px width for the full wordmark lockup.</li>
+        <li><strong>Minimum size — print:</strong> 12mm height for the mark-only; 50mm width for the full lockup.</li>
+        <li><strong>Preferred backgrounds:</strong> Void Black, Char, or any dark surface. The brand lives in the dark.</li>
+      </ul>
+    </div>
+
+    <div style="margin-top:3rem;">
+      <span class="eyebrow">Misuse — Don'ts</span>
+      <div class="donts-grid reveal">
+        <div class="dont-card">
+          <div class="mono">✗ Don't</div>
+          <p>Recolor the mark using off-palette colors, pastels, or plain black. The gradient is non-negotiable.</p>
+        </div>
+        <div class="dont-card">
+          <div class="mono">✗ Don't</div>
+          <p>Stretch, skew, or rotate the mark. The upward point is sacred — pepper tips up, always.</p>
+        </div>
+        <div class="dont-card">
+          <div class="mono">✗ Don't</div>
+          <p>Place the mark on a light background without the solid-fill on-light version. Never use the glowing version on white.</p>
+        </div>
+        <div class="dont-card">
+          <div class="mono">✗ Don't</div>
+          <p>Separate the kicker "GHOST.PEPPER.DNB" from the wordmark and use it as a standalone headline.</p>
+        </div>
+        <div class="dont-card">
+          <div class="mono">✗ Don't</div>
+          <p>Add drop shadows, bevels, or third-party effects. The glow is built in — don't add to it.</p>
+        </div>
+        <div class="dont-card">
+          <div class="mono">✗ Don't</div>
+          <p>Use the mark at sizes below minimum — the eye details and stem disappear and the mark reads as a blob.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════
+     7. COLOR SYSTEM
+══════════════════════════════════════════ -->
+<section id="colors">
+  <div class="wrap">
+    <span class="eyebrow">05 — Color System</span>
+    <h2>The <span class="t-fire">Palette</span></h2>
+    <p class="lede" style="margin-top:1rem;">Nine colors. Four temperature zones: void, fire, electric, and bone. Each has a distinct role — none are decorative filler.</p>
+
+    <div class="swatch-grid reveal">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#05050a;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Void Black</div>
+          <div class="swatch-hex">#05050a</div>
+          <div class="swatch-role">Primary background. The dark that everything burns against.</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#12121c;border-bottom:1px solid rgba(255,255,255,.06);"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Char</div>
+          <div class="swatch-hex">#12121c</div>
+          <div class="swatch-role">Surface, cards, secondary backgrounds. One step above void.</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#ff5e1a;box-shadow:0 0 20px rgba(255,94,26,.4) inset;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Ember Orange</div>
+          <div class="swatch-hex">#ff5e1a</div>
+          <div class="swatch-role">Primary accent. CTAs, highlights, the dominant glow.</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#e11212;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Pepper Red</div>
+          <div class="swatch-hex">#e11212</div>
+          <div class="swatch-role">Heat, danger, urgency. The pepper body base. Logo base.</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#00b3ff;box-shadow:0 0 20px rgba(0,179,255,.4) inset;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Blue Flame</div>
+          <div class="swatch-hex">#00b3ff</div>
+          <div class="swatch-role">Blue-Flame Designs accent. Logo core. Electric cool contrast.</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#1e63ff;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Deep Blue</div>
+          <div class="swatch-hex">#1e63ff</div>
+          <div class="swatch-role">Logo core base. Depth within the blue flame element.</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#39ff14;box-shadow:0 0 20px rgba(57,255,20,.5) inset;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">UV Green</div>
+          <div class="swatch-hex">#39ff14</div>
+          <div class="swatch-role">Blacklight/UV accent. Stem. Neon pop. Use sparingly.</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#b026ff;box-shadow:0 0 20px rgba(176,38,255,.4) inset;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Plasma Purple</div>
+          <div class="swatch-hex">#b026ff</div>
+          <div class="swatch-role">Atmospheric glow. Psychedelic undertone. Gradient partner.</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#f5f0e6;"></div>
+        <div class="swatch-info" style="background:var(--smoke);">
+          <div class="swatch-name">Bone</div>
+          <div class="swatch-hex">#f5f0e6</div>
+          <div class="swatch-role">Body text on dark. Light-context primary. Warm off-white.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:3rem;">
+      <span class="eyebrow">Gradient Combos</span>
+      <div class="gradient-row reveal">
+        <div class="grad-chip" style="background:linear-gradient(135deg,#e11212,#ff5e1a,#ffd27a);">Fire Stack</div>
+        <div class="grad-chip" style="background:linear-gradient(135deg,#1e63ff,#00b3ff);">Blue Flame</div>
+        <div class="grad-chip" style="background:linear-gradient(135deg,#b026ff,#ff5e1a);">Burn Spectrum</div>
+        <div class="grad-chip" style="background:linear-gradient(135deg,#00b3ff,#b026ff,#39ff14);">UV Trip</div>
+        <div class="grad-chip" style="background:linear-gradient(135deg,#05050a,#12121c,#2a2a3a);">Void Depth</div>
+      </div>
+    </div>
+
+    <div class="uv-note reveal" style="margin-top:2.5rem;">
+      <div class="uv-note-icon">🔦</div>
+      <div class="uv-note-text">
+        <h4>UV &amp; Blacklight Note</h4>
+        <p>UV Green (#39ff14) and Plasma Purple (#b026ff) are specifically chosen to represent the brand's blacklight-reactive apparel. In digital contexts, these colors carry that UV-reactive energy through glow effects and neon contrast. In apparel production, these tones are specified using UV-reactive inks on suitable base fabrics. Blue Flame (#00b3ff) also pops strongly under blacklight — it's not accidental that the apparel line shares its name with the palette's coolest tone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════
+     8. TYPOGRAPHY
+══════════════════════════════════════════ -->
+<section id="typography">
+  <div class="wrap">
+    <span class="eyebrow">06 — Typography</span>
+    <h2>Type <span class="t-fire">System</span></h2>
+    <p class="lede" style="margin-top:1rem;">Three typefaces. One for the stage, one for the page, one for the data. Each has a specific job and they don't trade places.</p>
+
+    <!-- BEBAS NEUE -->
+    <div class="type-specimen reveal">
+      <div class="type-spec-label">Display — Bebas Neue · All headlines, wordmark, section titles</div>
+      <div class="scale-row">
+        <span class="scale-size">96px</span>
+        <span class="type-sample-bebas" style="font-size:clamp(3.5rem,8vw,6rem);line-height:.9;" class="t-fire">GHOST PEPPER</span>
+      </div>
+      <div class="scale-row">
+        <span class="scale-size">64px</span>
+        <span class="type-sample-bebas" style="font-size:clamp(2.5rem,5vw,4rem);line-height:.9;">FIRE · BASS · RITUAL</span>
+      </div>
+      <div class="scale-row">
+        <span class="scale-size">48px</span>
+        <span class="type-sample-bebas" style="font-size:clamp(2rem,3.5vw,3rem);">WEAR THE BURN</span>
+      </div>
+      <div class="scale-row">
+        <span class="scale-size">32px</span>
+        <span class="type-sample-bebas" style="font-size:clamp(1.6rem,2.5vw,2rem);">DRUM &amp; BASS — 174 BPM</span>
+      </div>
+      <div class="scale-row">
+        <span class="scale-size">24px</span>
+        <span class="type-sample-bebas" style="font-size:1.4rem;">Charlotte / Asheville, North Carolina</span>
+      </div>
+      <p class="type-meta">Bebas Neue is a single-weight, all-caps condensed display face. Its extreme x-height and tight tracking make it read at massive sizes across posters, screens, and fabric prints. Never set Bebas Neue in mixed case. Never track it negatively — the default or slight positive track only. Pair always with Rajdhani or Space Mono for supporting text.</p>
+    </div>
+
+    <!-- RAJDHANI -->
+    <div class="type-specimen reveal">
+      <div class="type-spec-label">Body / UI — Rajdhani · Body copy, navigation, product descriptions, UI labels</div>
+      <div class="scale-row">
+        <span class="scale-size">700 · 24px</span>
+        <span class="type-sample-raj" style="font-size:1.5rem;font-weight:700;">Ghost Pepper DnB — Fire &amp; Flow Performance</span>
+      </div>
+      <div class="scale-row">
+        <span class="scale-size">600 · 18px</span>
+        <span class="type-sample-raj" style="font-size:1.12rem;font-weight:600;">Liliya Semenova — DJ / Producer / Fire Artist / Apparel Designer</span>
+      </div>
+      <div class="scale-row">
+        <span class="scale-size">400 · 17px</span>
+        <span class="type-sample-raj" style="font-size:1.06rem;font-weight:400;color:var(--bone-dim);">Ghost Pepper is the creative alias of Lily Semenova, a drum &amp; bass DJ, fire performer, and festival apparel designer based in Charlotte and Asheville, NC.</span>
+      </div>
+      <div class="scale-row">
+        <span class="scale-size">500 · 14px</span>
+        <span class="type-sample-raj" style="font-size:.875rem;font-weight:500;color:var(--bone-dim);">UV-reactive ink — machine wash cold — festival-grade construction</span>
+      </div>
+      <p class="type-meta">Rajdhani is a semi-condensed humanist sans with strong optical weight at display sizes but excellent readability in body columns. Available weights 400–700. Use 400–500 for body, 600–700 for UI emphasis, sub-headings, and product names. Sentence case only in body and UI; all-caps permitted for very short labels (navigation, tags) at 600+ weight.</p>
+    </div>
+
+    <!-- SPACE MONO -->
+    <div class="type-specimen reveal">
+      <div class="type-spec-label">Mono / Labels — Space Mono · Captions, eyebrows, code, data labels, kicker text</div>
+      <div class="scale-row">
+        <span class="scale-size">700 · 14px</span>
+        <span class="type-sample-mono" style="font-size:.875rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;">GHOST.PEPPER.DNB · EST. CHARLOTTE NC</span>
+      </div>
+      <div class="scale-row">
+        <span class="scale-size">400 · 13px</span>
+        <span class="type-sample-mono" style="font-size:.81rem;font-weight:400;letter-spacing:.1em;color:var(--bone-dim);">BPM: 174 · KEY: F# minor · RUNTIME: 58:32</span>
+      </div>
+      <div class="scale-row">
+        <span class="scale-size">eyebrow · 11px</span>
+        <span class="type-sample-mono" style="font-size:.68rem;font-weight:400;letter-spacing:.44em;text-transform:uppercase;color:var(--ember);">07 — Color System</span>
+      </div>
+      <div class="scale-row">
+        <span class="scale-size">400 · 12px</span>
+        <span class="type-sample-mono" style="font-size:.75rem;font-weight:400;color:var(--bone-dim);">© 2026 Blue-Flame Designs / Ghost Pepper · @ghost.pepper.dnb</span>
+      </div>
+      <p class="type-meta">Space Mono is the brand's technical, data, and label voice. Its fixed-width, grid-locked letters connote precision and the producer mindset. Keep it small — 14px and below in most cases. Heavy tracking (0.2–0.45em) at smallest sizes. Color: Bone Dim for neutral labels; Ember Orange for active eyebrows and section markers. Never use Space Mono for body paragraphs.</p>
+    </div>
+
+    <div style="padding:2rem;border:1px solid rgba(255,255,255,.06);border-radius:var(--r);background:rgba(255,255,255,.02);margin-top:1rem;" class="reveal">
+      <div class="eyebrow">Pairing Rules</div>
+      <ul style="list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:.5rem;">
+        <li style="font-size:.88rem;color:var(--bone-dim);line-height:1.65;"><strong style="color:var(--bone);">Headline + Body:</strong> Bebas Neue headline → Rajdhani body copy. Never two display weights together.</li>
+        <li style="font-size:.88rem;color:var(--bone-dim);line-height:1.65;"><strong style="color:var(--bone);">Eyebrow + Title:</strong> Space Mono eyebrow (small, tracked wide) → Bebas Neue title. Classic hierarchy.</li>
+        <li style="font-size:.88rem;color:var(--bone-dim);line-height:1.65;"><strong style="color:var(--bone);">Product Labels:</strong> Rajdhani product name (600 weight) → Space Mono SKU/detail line below.</li>
+        <li style="font-size:.88rem;color:var(--bone-dim);line-height:1.65;"><strong style="color:var(--bone);">Never:</strong> Space Mono and Bebas Neue as equals at the same size — one must lead, one must follow.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════
+     9. IMAGERY & ART DIRECTION
+══════════════════════════════════════════ -->
+<section id="imagery">
+  <div class="wrap">
+    <span class="eyebrow">07 — Imagery &amp; Art Direction</span>
+    <h2>The <span class="t-fire">Visual World</span></h2>
+    <p class="lede" style="margin-top:1rem;">Ghost Pepper imagery lives in the dark — fire-lit, UV-drenched, high-contrast. Every shot is either mid-performance or mid-ritual. No studio white, no lifestyle beige, no softbox flat light.</p>
+
+    <div style="margin:2.5rem 0;">
+      <div class="eyebrow">Mood Grid</div>
+      <div class="mood-grid reveal">
+        <div class="mood-tile mt1">
+          <div class="mood-label">Fire Trail — Long Exposure</div>
+          <div class="mood-sub">Poi arcs at night, ember-to-void gradient sky</div>
+        </div>
+        <div class="mood-tile mt2">
+          <div class="mood-label">Blue Core — Macro Fire</div>
+          <div class="mood-sub">Tight on the blue flame base, blurred orange corona</div>
+        </div>
+        <div class="mood-tile mt3">
+          <div class="mood-label">UV Body Paint — Blacklight</div>
+          <div class="mood-sub">Neon green + plasma purple on skin, full dark surround</div>
+        </div>
+        <div class="mood-tile mt4">
+          <div class="mood-label">Stage — Neon Rim Light</div>
+          <div class="mood-sub">DJ silhouette, UV green edge, deep blue-black crowd</div>
+        </div>
+        <div class="mood-tile mt5">
+          <div class="mood-label">Festival Crowd — Blacklight</div>
+          <div class="mood-sub">UV-reactive apparel glowing in a sea of dark bodies</div>
+        </div>
+        <div class="mood-tile mt6">
+          <div class="mood-label">Fire Fan — High Speed</div>
+          <div class="mood-sub">Frozen fire petals, warm gold bokeh, velvet black</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="photo-principles reveal">
+      <div class="photo-principle">
+        <h4 class="t-fire">Night / Dark Only</h4>
+        <p>All hero imagery is set at night or in blacklight environments. Daytime lifestyle shots are not part of the Ghost Pepper visual vocabulary. If you shoot during the day, underexpose and grade toward night.</p>
+      </div>
+      <div class="photo-principle">
+        <h4 class="t-blue">High Contrast</h4>
+        <p>Maximize the contrast between the subject — fire, performer, glowing apparel — and the background void. Near-black shadows, blown-out flame highlights. No midtone comfort zones.</p>
+      </div>
+      <div class="photo-principle">
+        <h4 class="t-uv">UV &amp; Neon Accent</h4>
+        <p>UV-reactive elements should visually dominate any blacklight shot. If UV green or plasma purple aren't present, add a rim light in those tones. The blacklight look is a core brand signal.</p>
+      </div>
+      <div class="photo-principle">
+        <h4 style="color:var(--plasma);">Performance First</h4>
+        <p>The subject is always doing something — spinning, playing, moving. Ghost Pepper doesn't do posed portrait-mode lifestyle. Every image should show the act in progress or its immediate aftermath.</p>
+      </div>
+      <div class="photo-principle">
+        <h4 class="t-fire">Psychedelic Grade</h4>
+        <p>Color grading leans chromatic and slightly hallucinatory — pushed teals and oranges, deep lifted blacks in neon zones, slight bloom on fire sources. Reference: festival long-exposure photography meets dark editorial.</p>
+      </div>
+      <div class="photo-principle">
+        <h4 style="color:var(--bone);">No Stock</h4>
+        <p>Ghost Pepper is a real person doing real things. All imagery should be original — actual fire performances, actual DJ sets, actual apparel worn in the field. Stock photography reads false immediately in this community.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════
+     10. APPAREL DIRECTION
+══════════════════════════════════════════ -->
+<section id="apparel">
+  <div class="wrap">
+    <span class="eyebrow">08 — Apparel Direction</span>
+    <h2>Blue-Flame <span class="t-blue">Designs</span></h2>
+    <p class="lede" style="margin-top:1rem;">The apparel arm of Ghost Pepper. Festival-grade pieces designed to perform under blacklight, hold up in the pit, and still look right at the afterparty. Every item is an extension of the brand's visual identity — not merchandise, but wearable ritual objects.</p>
+
+    <div class="apparel-grid reveal">
+      <div class="apparel-card">
+        <div class="apparel-icon">👕</div>
+        <div class="apparel-cat">Tees</div>
+        <div class="apparel-items">
+          Heavyweight cotton or cotton-poly blends. Front/back graphic configurations. UV-reactive ink on select colorways. Black base standard; charcoal and bone as alternates.
+        </div>
+      </div>
+      <div class="apparel-card">
+        <div class="apparel-icon">🧥</div>
+        <div class="apparel-cat">Hoodies</div>
+        <div class="apparel-items">
+          Mid-weight fleece, festival-appropriate. Pullover and zip configurations. Kangaroo pocket, drop-shoulder cut. UV print on back panel or sleeve graphic.
+        </div>
+      </div>
+      <div class="apparel-card">
+        <div class="apparel-icon">⚡</div>
+        <div class="apparel-cat">Performance</div>
+        <div class="apparel-items">
+          Moisture-wicking stretch fabric for flow arts. Crop tops, leggings, rashguards. UV-reactive prints that survive sweat. Cut for movement — poling, spinning, dancing.
+        </div>
+      </div>
+      <div class="apparel-card">
+        <div class="apparel-icon">🧢</div>
+        <div class="apparel-cat">Headwear</div>
+        <div class="apparel-items">
+          5-panel and bucket hats. Embroidered Ghost Pepper mark or Blue-Flame logo. UV-reactive embroidery thread on select SKUs.
+        </div>
+      </div>
+      <div class="apparel-card">
+        <div class="apparel-icon">🎒</div>
+        <div class="apparel-cat">Accessories</div>
+        <div class="apparel-items">
+          Tote bags, bandanas, stickers, pins, patches. Festival-utility first. Stickers are the entry-level brand touchpoint — make them UV-reactive.
+        </div>
+      </div>
+      <div class="apparel-card">
+        <div class="apparel-icon">🖼️</div>
+        <div class="apparel-cat">Art Prints</div>
+        <div class="apparel-items">
+          Limited-edition giclée prints of key brand illustrations. Fire performance photography edits. UV-reactive ink options for collector prints.
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:2.5rem;padding:2rem;border:1px solid rgba(57,255,20,.18);border-radius:var(--r);background:rgba(57,255,20,.03);" class="reveal">
+      <div class="eyebrow">UV-Reactive Note</div>
+      <p style="color:var(--bone-dim);line-height:1.8;font-size:.92rem;max-width:70ch;">UV-reactive (blacklight) ink is not an option on Ghost Pepper apparel — it's a design requirement on hero pieces. The apparel should transform when the lights go out. UV Green (#39ff14), Plasma Purple (#b026ff), and Blue Flame (#00b3ff) are the three UV priority colors. In production, work with print vendors who specialize in UV-reactive DTG or screen printing.</p>
+    </div>
+
+    <div style="margin-top:2.5rem;">
+      <div class="eyebrow">Sample Naming</div>
+      <p style="color:var(--bone-dim);font-size:.88rem;margin-bottom:1rem;">Product names follow a two-part pattern: element + adjective, or ritual term + material note.</p>
+      <div class="naming-row reveal">
+        <div class="name-chip">Void Tee</div>
+        <div class="name-chip">Blue Flame Pullover</div>
+        <div class="name-chip">Ghost Eyes Crop</div>
+        <div class="name-chip">Ember Bucket Hat</div>
+        <div class="name-chip">Char Zip</div>
+        <div class="name-chip">UV Core Rashguard</div>
+        <div class="name-chip">Stem Sticker Pack</div>
+        <div class="name-chip">Pepper Mark Bandana</div>
+        <div class="name-chip">Ritual Leggings</div>
+        <div class="name-chip">Plasma Patch</div>
+        <div class="name-chip">Bass Drop Tee</div>
+        <div class="name-chip">Fire Fan Print — No. 1</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════
+     11. APPLICATIONS
+══════════════════════════════════════════ -->
+<section id="applications">
+  <div class="wrap">
+    <span class="eyebrow">09 — Applications</span>
+    <h2>In The <span class="t-fire">Wild</span></h2>
+    <p class="lede" style="margin-top:1rem;">Styled mockups showing the brand system applied across four key touchpoints. All built in CSS/SVG — no real photos needed to feel the weight of this identity.</p>
+
+    <div class="apps-grid">
+
+      <!-- TEE MOCKUP -->
+      <div class="mockup-tee reveal">
+        <div class="tee-body">
+          <div class="tee-print">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <use href="#gpMark"/>
+            </svg>
+            <div class="tee-print-text t-fire">GHOST<br>PEPPER</div>
+            <div class="tee-print-kicker">GHOST.PEPPER.DNB</div>
+          </div>
+        </div>
+        <div class="mockup-label">Void Tee — Black base<br>UV-reactive front print</div>
+      </div>
+
+      <!-- POSTER MOCKUP -->
+      <div class="mockup-poster reveal">
+        <div class="poster-glow-bar"></div>
+        <div class="poster-inner">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <use href="#gpMark"/>
+          </svg>
+          <p class="poster-sub">GHOST PEPPER BABY · PRESENTS</p>
+          <h2 class="poster-title t-fire">GHOST<br>PEPPER</h2>
+          <p class="poster-tagline t-uv">Wear the Burn.</p>
+          <div class="poster-details">
+            <div style="margin-bottom:.4rem;font-size:.75rem;color:var(--ember);letter-spacing:.2em;">FIRE · BASS · RITUAL</div>
+            DRUM &amp; BASS · FIRE PERFORMANCE · FESTIVAL APPAREL<br>
+            CHARLOTTE &amp; ASHEVILLE, NC · @GHOST.PEPPER.DNB
+          </div>
+        </div>
+        <div class="poster-glow-bar"></div>
+        <div class="mockup-label" style="padding:.7rem;text-align:center;font-family:var(--mono);font-size:.62rem;letter-spacing:.25em;color:var(--bone-dim);">EVENT POSTER — Portrait A2/A3</div>
+      </div>
+
+      <!-- INSTAGRAM TILE -->
+      <div class="mockup-ig reveal">
+        <div class="ig-tile">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <use href="#gpMark"/>
+          </svg>
+          <div class="ig-tile-cta t-fire">WEAR<br>THE BURN.</div>
+          <div class="ig-tile-handle">@ghost.pepper.dnb</div>
+        </div>
+        <div class="mockup-label" style="padding:.6rem;text-align:center;font-family:var(--mono);font-size:.62rem;letter-spacing:.25em;color:var(--bone-dim);margin-top:.6rem;">Instagram Tile — 1:1 · 1080×1080</div>
+      </div>
+
+      <!-- STREAM OVERLAY -->
+      <div class="mockup-stream reveal">
+        <div class="stream-frame">
+          <div class="stream-bg"></div>
+          <div class="stream-top-bar"></div>
+          <div class="stream-logo">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="width:28px;filter:drop-shadow(0 0 6px rgba(255,94,26,.7))">
+              <use href="#gpMark"/>
+            </svg>
+            <span class="stream-logo-text t-fire">GHOST PEPPER</span>
+          </div>
+          <div class="stream-live-badge">● LIVE</div>
+          <div class="stream-waveform">
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+          </div>
+          <div class="stream-track">NOW PLAYING — GHOST PEPPER DNB MIX</div>
+          <div class="stream-bpm">174 BPM</div>
+        </div>
+        <div class="mockup-label" style="padding:.6rem;text-align:center;font-family:var(--mono);font-size:.62rem;letter-spacing:.25em;color:var(--bone-dim);margin-top:.6rem;">Live Stream Overlay — 16:9</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════
+     12. WEB / DIGITAL
+══════════════════════════════════════════ -->
+<section id="digital">
+  <div class="wrap">
+    <span class="eyebrow">10 — Web &amp; Digital</span>
+    <h2>The <span class="t-blue">Site</span></h2>
+    <p class="lede" style="margin-top:1rem;">The live website is a direct expression of this brand book — the same palette, typefaces, mark, and voice applied to a dark, fast-loading storefront and artist hub. This document is the source of truth the site is built from.</p>
+
+    <div class="site-sections reveal">
+      <div class="site-section-card">
+        <div class="site-num">01</div>
+        <div class="site-name">Home</div>
+        <div class="site-desc">Full-bleed hero with animated logo, tagline, and atmospheric background. Entry to the brand world.</div>
+      </div>
+      <div class="site-section-card">
+        <div class="site-num">02</div>
+        <div class="site-name">Shop</div>
+        <div class="site-desc">Blue-Flame Designs apparel. Product grid with UV-reactive notes, cart, and checkout. Dark UI, ember accent CTAs.</div>
+      </div>
+      <div class="site-section-card">
+        <div class="site-num">03</div>
+        <div class="site-name">Live</div>
+        <div class="site-desc">Stream-to-sell integration. DJ sets and fire performance streams with in-stream shopping for apparel drops.</div>
+      </div>
+      <div class="site-section-card">
+        <div class="site-num">04</div>
+        <div class="site-name">About</div>
+        <div class="site-desc">Artist bio, the three pillars, performance history, press photos. Establishes Lily Semenova as the human behind the brand.</div>
+      </div>
+      <div class="site-section-card">
+        <div class="site-num">05</div>
+        <div class="site-name">Contact</div>
+        <div class="site-desc">Booking, wholesale, press, and collabs. Minimal form, direct social links. No FAQ bloat.</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:2rem;" class="reveal">
+      <div style="padding:1.5rem;border:1px solid rgba(255,255,255,.06);border-radius:var(--r);background:rgba(255,255,255,.02);">
+        <div class="eyebrow" style="margin-bottom:.8rem;">Digital Standards</div>
+        <ul style="list-style:disc;padding-left:1.5rem;color:var(--bone-dim);font-size:.88rem;line-height:1.8;">
+          <li>Background: always Void Black (#05050a)</li>
+          <li>Primary text: Bone (#f5f0e6)</li>
+          <li>Primary accent: Ember Orange (#ff5e1a)</li>
+          <li>Fonts via Google Fonts @import: Bebas Neue, Rajdhani, Space Mono</li>
+          <li>Glow effects via box-shadow and filter: drop-shadow</li>
+          <li>No white backgrounds in any UI component</li>
+          <li>Atmospheric radial gradients in section backgrounds</li>
+        </ul>
+      </div>
+      <div style="padding:1.5rem;border:1px solid rgba(255,255,255,.06);border-radius:var(--r);background:rgba(255,255,255,.02);">
+        <div class="eyebrow" style="margin-bottom:.8rem;">Social Handles</div>
+        <ul style="list-style:none;color:var(--bone-dim);font-size:.88rem;line-height:1.8;">
+          <li><strong style="color:var(--bone);">Instagram:</strong> @ghost.pepper.dnb</li>
+          <li><strong style="color:var(--bone);">Instagram (apparel):</strong> @blueflame.designs</li>
+          <li><strong style="color:var(--bone);">Facebook:</strong> /smnvlily</li>
+          <li><strong style="color:var(--bone);">SoundCloud:</strong> ghost.pepper.dnb</li>
+          <li><strong style="color:var(--bone);">Location:</strong> Charlotte / Asheville, NC</li>
+          <li><strong style="color:var(--bone);">URL format:</strong> ghost.pepper.dnb across platforms</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════
+     13. CLOSER
+══════════════════════════════════════════ -->
+<section id="closer">
+  <svg class="closer-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <use href="#gpMark"/>
+  </svg>
+  <h1 class="closer-tagline t-fire">Wear<br>the Burn.</h1>
+  <p class="closer-secondary">Fire &nbsp;·&nbsp; Bass &nbsp;·&nbsp; Ritual</p>
+
+  <div style="font-family:var(--display);font-size:clamp(1.2rem,3vw,2rem);color:var(--bone-dim);margin-bottom:2rem;letter-spacing:.04em;">
+    Liliya "Lily" Semenova<br>
+    <span style="font-size:.65em;color:var(--ash);letter-spacing:.1em;">ghost.pepper.dnb</span>
+  </div>
+
+  <div class="contact-grid">
+    <a class="contact-chip" href="https://instagram.com/ghost.pepper.dnb" target="_blank" rel="noopener">
+      <span style="font-size:1rem;">📸</span> @ghost.pepper.dnb
+    </a>
+    <a class="contact-chip" href="https://instagram.com/blueflame.designs" target="_blank" rel="noopener">
+      <span style="font-size:1rem;">🔵</span> @blueflame.designs
+    </a>
+    <a class="contact-chip" href="https://facebook.com/smnvlily" target="_blank" rel="noopener">
+      <span style="font-size:1rem;">📘</span> /smnvlily
+    </a>
+    <div class="contact-chip">
+      <span style="font-size:1rem;">📍</span> Charlotte / Asheville, NC
+    </div>
+  </div>
+
+  <div style="margin-top:3rem;padding:1.5rem 2rem;border:1px solid rgba(255,94,26,.2);border-radius:var(--r);background:rgba(255,94,26,.04);text-align:center;max-width:500px;">
+    <div class="small-mono" style="color:var(--ember);letter-spacing:.35em;text-transform:uppercase;margin-bottom:.6rem;">Bookings &amp; Wholesale</div>
+    <p style="font-size:.88rem;color:var(--bone-dim);">For DJ bookings, fire performance, wholesale apparel orders, and press inquiries — reach out via Instagram DM or the contact form at the website.</p>
+  </div>
+
+  <p class="closer-copy">© 2026 Ghost Pepper · Blue-Flame Designs · Liliya Semenova · All Rights Reserved<br>This brand book is a living document — updated as the brand evolves.</p>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SCROLL REVEAL SCRIPT
+══════════════════════════════════════════ -->
+<script>
+(function() {
+  const els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(el => el.classList.add('visible'));
+    return;
+  }
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  els.forEach(el => obs.observe(el));
+})();
+</script>
+
+</body>
+</html>

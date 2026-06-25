@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Live · GHOST PEPPER</title>
+<meta name="description" content="GHOST PEPPER LIVE — Drum & bass, fire visuals, and shop-the-stream apparel drops by Liliya Semenova. Wear the burn.">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/styles.css">
+<meta property="og:title" content="GHOST PEPPER — Live Stream">
+<meta property="og:description" content="Tune into the live DnB + fire stream and cop limited pieces in real time.">
+<meta property="og:type" content="website">
+</head>
+<body>
+
+<!-- ============ NAV (canonical) ============ -->
+<header class="nav">
+  <div class="nav__inner">
+    <a class="nav__logo" href="index.html" aria-label="Ghost Pepper home">
+      <img src="assets/logo.svg" alt="" width="34" height="34" class="anim-glow">
+      <span class="nav__wordmark">GHOST PEPPER<small>GHOST.PEPPER.DNB</small></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="stream.html" class="active">Live</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="flex items-center gap">
+      <a href="shop.html" class="nav__cart" data-cart-open aria-label="Cart">
+        <span>CART</span><span class="nav__cart-count" data-cart-count>0</span>
+      </a>
+      <button class="nav__burger" aria-label="Menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ STREAM HERO ============ -->
+<section class="section stream-hero-section" data-fire="calm" style="padding-top:clamp(36px,5vw,72px); padding-bottom:0;">
+  <div class="wrap">
+    <p class="eyebrow reveal">On Air</p>
+    <h1 class="reveal" style="margin-top:12px; margin-bottom:28px;">
+      <span class="t-fire">GHOST PEPPER</span> <span class="t-uv">LIVE</span>
+    </h1>
+
+    <!-- Player + Chat layout -->
+    <div class="stream-layout reveal">
+
+      <!-- VIDEO PLAYER AREA -->
+      <div class="stream-player-col">
+        <div class="stream-player-wrap">
+          <!--
+          ╔══════════════════════════════════════════════════════════════╗
+          ║  LIVE EMBED GOES HERE                                        ║
+          ║  Replace the .stream-placeholder div below with one of:      ║
+          ║                                                              ║
+          ║  YouTube Live:                                               ║
+          ║  <iframe width="100%" height="100%"                          ║
+          ║    src="https://www.youtube.com/embed/LIVE_VIDEO_ID?         ║
+          ║         autoplay=1&mute=0"                                   ║
+          ║    frameborder="0" allowfullscreen allow="autoplay">         ║
+          ║  </iframe>                                                   ║
+          ║                                                              ║
+          ║  Twitch:                                                     ║
+          ║  <iframe                                                     ║
+          ║    src="https://player.twitch.tv/?channel=CHANNEL_NAME&      ║
+          ║         parent=ghost.pepper.dnb"                             ║
+          ║    frameborder="0" allowfullscreen>                          ║
+          ║  </iframe>                                                   ║
+          ║                                                              ║
+          ║  Kick:                                                       ║
+          ║  <iframe                                                     ║
+          ║    src="https://player.kick.com/CHANNEL_NAME"                ║
+          ║    frameborder="0" allowfullscreen>                          ║
+          ║  </iframe>                                                   ║
+          ╚══════════════════════════════════════════════════════════════╝
+          -->
+          <div class="stream-placeholder ph" data-label="LIVE STREAM EMBED · YouTube / Twitch / Kick">
+            <div class="stream-placeholder__inner">
+              <div class="stream-live-badge">
+                <span class="stream-dot"></span>LIVE
+              </div>
+              <div class="stream-set-title">Fire &amp; Bass Ritual</div>
+              <div class="stream-viewer-count">
+                <span class="t-blue">👁 1,847</span> &nbsp;watching now
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="stream-embed-note">
+          ↑ Paste your YouTube / Twitch / Kick <code>&lt;iframe&gt;</code> embed inside the commented block above to go live.
+        </p>
+      </div>
+
+      <!-- LIVE CHAT PANEL -->
+      <div class="stream-chat-col">
+        <div class="stream-chat">
+          <div class="stream-chat__head">
+            <span class="eyebrow" style="font-size:.64rem;">Live Chat</span>
+            <span class="tag tag--fire" style="font-size:.6rem; padding:3px 8px;">PLACEHOLDER</span>
+          </div>
+          <div class="stream-chat__messages" aria-label="Live chat (sample)">
+            <div class="chat-msg"><span class="chat-user t-fire">BassBomber_Kira</span><span class="chat-text">THIS BEAT IS EVERYTHING 🔥</span></div>
+            <div class="chat-msg"><span class="chat-user t-uv">UVPoi_Nadia</span><span class="chat-text">Lily's transitions are INSANE tonight</span></div>
+            <div class="chat-msg"><span class="chat-user t-blue">FlameWitch_Orla</span><span class="chat-text">copping the hoodie rn brb</span></div>
+            <div class="chat-msg"><span class="chat-user" style="color:var(--plasma);">SubBass_Rex</span><span class="chat-text">174 BPM at 2AM hits different</span></div>
+            <div class="chat-msg"><span class="chat-user t-fire">GhostChild_Mara</span><span class="chat-text">that fire poi drop omgggg</span></div>
+            <div class="chat-msg"><span class="chat-user t-uv">NeonFeral_Jax</span><span class="chat-text">the UV rashguard is so good live 😤</span></div>
+            <div class="chat-msg"><span class="chat-user t-blue">CirqueBass_Yuna</span><span class="chat-text">link to that hoodie???</span></div>
+            <div class="chat-msg"><span class="chat-user" style="color:var(--plasma);">Plasma_Drift</span><span class="chat-text">ITS IN THE RAIL BELOW 👇👇</span></div>
+            <div class="chat-msg"><span class="chat-user t-fire">EmberRave_Sochi</span><span class="chat-text">Ghost Pepper baby 🌶 lets gooo</span></div>
+            <div class="chat-msg"><span class="chat-user t-uv">FlowState_Fen</span><span class="chat-text">been here since she went live, not leaving</span></div>
+            <div class="chat-msg"><span class="chat-user t-blue">RaveFox_Tilda</span><span class="chat-text">wear the BURN 🔥🔥🔥</span></div>
+            <div class="chat-msg"><span class="chat-user" style="color:var(--plasma);">DarkMatter_Vex</span><span class="chat-text">next track drop when??</span></div>
+          </div>
+          <!--
+            Replace .stream-chat__messages + input below with your platform's chat embed:
+            YouTube: <iframe src="https://www.youtube.com/live_chat?v=VIDEO_ID&embed_domain=ghost.pepper.dnb" ...>
+            Twitch:  <iframe src="https://www.twitch.tv/embed/CHANNEL/chat?parent=ghost.pepper.dnb" ...>
+          -->
+          <div class="stream-chat__foot">
+            <input type="text" class="stream-chat__input" placeholder="Sign in to chat" disabled aria-label="Chat input (disabled — placeholder)">
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /stream-layout -->
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>LIVE NOW</span><span>SHOP THE STREAM</span><span>WEAR THE BURN</span><span>174 BPM</span>
+    <span>LIVE NOW</span><span>SHOP THE STREAM</span><span>WEAR THE BURN</span><span>174 BPM</span>
+  </div>
+</div>
+
+<!-- ============ SHOP-THE-STREAM RAIL ============ -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="flex between items-center wrapf reveal" style="gap:16px;">
+      <div>
+        <p class="eyebrow">Shop the Stream</p>
+        <h2 class="mt-s">DROPPING NOW — <span class="t-uv">SHOP LIVE</span></h2>
+      </div>
+      <a href="shop.html" class="btn btn--ghost reveal">Full shop →</a>
+    </div>
+    <div class="grid grid--4 mt-l" id="stream-shop-rail">
+      <!-- rendered by inline script below -->
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCHEDULE ============ -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="divider"></div>
+    <p class="eyebrow reveal">Upcoming Streams</p>
+    <h2 class="reveal mt-s">CATCH THE <span class="t-fire">NEXT RITUAL</span></h2>
+    <ul class="stream-schedule mt-l" aria-label="Upcoming stream schedule">
+      <li class="stream-sched-row reveal">
+        <div class="stream-sched-date">
+          <span class="sched-day">FRI</span>
+          <span class="sched-time">9 PM ET</span>
+        </div>
+        <div class="stream-sched-body">
+          <span class="stream-sched-title">Fire &amp; Bass Ritual</span>
+          <span class="stream-sched-tags">
+            <span class="tag tag--fire">DnB</span>
+            <span class="tag tag--uv">Fire Poi</span>
+          </span>
+        </div>
+        <div class="stream-sched-platform">YouTube / Twitch</div>
+      </li>
+      <li class="stream-sched-row reveal">
+        <div class="stream-sched-date">
+          <span class="sched-day">SAT</span>
+          <span class="sched-time">11 PM ET</span>
+        </div>
+        <div class="stream-sched-body">
+          <span class="stream-sched-title">Deep Pressure — Late Night Set</span>
+          <span class="stream-sched-tags">
+            <span class="tag tag--blue">Liquid DnB</span>
+            <span class="tag">Live Mix</span>
+          </span>
+        </div>
+        <div class="stream-sched-platform">Twitch</div>
+      </li>
+      <li class="stream-sched-row reveal">
+        <div class="stream-sched-date">
+          <span class="sched-day">SUN</span>
+          <span class="sched-time">7 PM ET</span>
+        </div>
+        <div class="stream-sched-body">
+          <span class="stream-sched-title">UV Flow Session — Blacklight Showcase</span>
+          <span class="stream-sched-tags">
+            <span class="tag tag--uv">UV Flow</span>
+            <span class="tag tag--fire">Apparel Drop</span>
+          </span>
+        </div>
+        <div class="stream-sched-platform">YouTube</div>
+      </li>
+      <li class="stream-sched-row reveal">
+        <div class="stream-sched-date">
+          <span class="sched-day">WED</span>
+          <span class="sched-time">8 PM ET</span>
+        </div>
+        <div class="stream-sched-body">
+          <span class="stream-sched-title">Cirque-du-Sol-Rave — Fan Q&amp;A + Mix</span>
+          <span class="stream-sched-tags">
+            <span class="tag" style="color:var(--plasma); border-color:rgba(176,38,255,.4);">Plasma</span>
+            <span class="tag">Interactive</span>
+          </span>
+        </div>
+        <div class="stream-sched-platform">YouTube / Kick</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ GET NOTIFIED ============ -->
+<section class="section section--tight">
+  <div class="wrap center stack reveal" style="max-width:640px;">
+    <p class="eyebrow mx-auto">Never Miss a Drop</p>
+    <h2>GET NOTIFIED <span class="t-plasma">WHEN LIVE</span></h2>
+    <p class="lede mx-auto">We'll ping you the moment Ghost Pepper goes live — plus early access to stream-only apparel drops.</p>
+    <form class="flex gap wrapf" style="justify-content:center; margin-top:18px;"
+      onsubmit="event.preventDefault(); this.reset(); this.querySelector('.nl-ok').style.display='block';">
+      <input type="email" required placeholder="you@email.com" aria-label="Email address"
+        style="background:var(--void-2); border:var(--ring); color:var(--bone); padding:14px 20px; border-radius:50px; font-family:var(--mono); min-width:260px;">
+      <button class="btn btn--fill" type="submit">Notify Me</button>
+      <p class="nl-ok" style="display:none; width:100%; color:var(--uv-green); font-family:var(--mono); font-size:.85rem;">🔥 You're in. We'll hit you when we go live.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ OFF-AIR: DRUM & BASS ============ -->
+<section class="section section--tight" id="offair">
+  <div class="wrap">
+    <p class="eyebrow reveal">Off Air? Never.</p>
+    <h2 class="reveal mt-s">SPIN THE <span class="t-blue">VAULT</span></h2>
+    <p class="lede reveal mt-s" style="max-width:52ch;">No live set right now? Roll the recorded drum &amp; bass while you wait — 174 BPM of GHOST PEPPER heat.</p>
+    <div class="reveal mt-m" style="border-radius:var(--radius); overflow:hidden; border:var(--ring); box-shadow:0 18px 50px -24px rgba(0,179,255,.6);">
+      <iframe title="GHOST PEPPER on SoundCloud" width="100%" height="340" scrolling="no" frameborder="no" allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/rzkpikachu&color=%23ff5e1a&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+    </div>
+    <div class="center mt-m">
+      <a href="https://soundcloud.com/rzkpikachu" target="_blank" rel="noopener" class="btn btn--blue reveal">Full SoundCloud →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER (canonical) ============ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div>
+        <a class="nav__logo" href="index.html" style="margin-bottom:14px;">
+          <img src="assets/logo.svg" alt="" width="30" height="30">
+          <span class="nav__wordmark" style="font-size:1.3rem;">GHOST PEPPER</span>
+        </a>
+        <p class="lede" style="font-size:.95rem; max-width:32ch;">Jackalope of all trades. Fire, bass, and threads from Liliya Semenova. 🌶🔥🔊</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="index.html">Home</a><a href="shop.html">Shop</a><a href="stream.html">Live</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <a href="https://www.instagram.com/ghost.pepper.dnb/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/smnvlily" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://soundcloud.com/rzkpikachu" target="_blank" rel="noopener">SoundCloud</a>
+        <a href="contact.html">Book a show</a>
+      </div>
+      <div>
+        <h4>The Drop List</h4>
+        <p class="lede" style="font-size:.9rem;">Get early access to apparel + show dates.</p>
+        <a href="#" class="btn btn--uv btn--sm" style="margin-top:10px;">Join →</a>
+      </div>
+    </div>
+    <div class="foot__bottom">
+      <span>© <span data-year>2026</span> GHOST PEPPER · Blue-Flame Designs</span>
+      <span>Built in fire · Wear the burn</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ CART DRAWER + OVERLAY ============ -->
+<div class="cart-drawer" data-cart-drawer role="dialog" aria-label="Shopping cart" aria-modal="true">
+  <div class="cart-drawer__head">
+    <h3>YOUR CART</h3>
+    <button class="cart-drawer__close" data-cart-close aria-label="Close cart">✕</button>
+  </div>
+  <div class="cart-drawer__body" data-cart-items></div>
+  <div class="cart-drawer__foot">
+    <div class="cart-total" data-cart-total>
+      <span>Total</span>
+      <b>$0.00</b>
+    </div>
+    <button class="btn btn--fill" style="width:100%;" data-checkout>Checkout</button>
+  </div>
+</div>
+<div class="overlay" data-cart-close></div>
+
+<!-- ============ SCRIPTS ============ -->
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+<script src="js/fire-bg.js"></script>
+<script>
+(function () {
+  // ---- Shop-the-stream rail: render first 4 products ----
+  const rail = document.getElementById('stream-shop-rail');
+  if (rail && window.GP_PRODUCTS) {
+    rail.innerHTML = window.GP_PRODUCTS.slice(0, 4).map(p => `
+      <article class="card reveal stream-card" data-product="${p.id}" data-name="${p.name}" data-price="${p.price}">
+        <div class="card__media">
+          <div class="ph" data-label="${p.name}"></div>
+          ${p.badge ? `<span class="tag tag--fire" style="position:absolute;top:12px;left:12px;">${p.badge}</span>` : ''}
+          <span class="stream-live-indicator">● LIVE DROP</span>
+        </div>
+        <div class="card__body">
+          <div class="flex between items-center">
+            <h3 style="font-size:1.15rem; line-height:1.1;">${p.name}</h3>
+            <span class="price">$${p.price.toFixed(2)}</span>
+          </div>
+          <p class="lede" style="font-size:.85rem; margin-top:6px;">${p.blurb}</p>
+          <button class="btn btn--fill btn--sm mt-s" style="width:100%;"
+            data-add="${p.id}" data-name="${p.name}" data-price="${p.price}">
+            Add to Cart
+          </button>
+        </div>
+      </article>`).join('');
+
+    // Re-observe new .reveal elements
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    rail.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  }
+
+  // ---- Reveal observer for static .reveal elements ----
+  const revealIO = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); revealIO.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => revealIO.observe(el));
+
+  // ---- Overlay sync: open/close overlay with drawer ----
+  const overlay = document.querySelector('.overlay');
+  const drawer  = document.querySelector('[data-cart-drawer]');
+  if (overlay && drawer) {
+    const observer = new MutationObserver(() => {
+      overlay.classList.toggle('open', drawer.classList.contains('open'));
+    });
+    observer.observe(drawer, { attributes: true, attributeFilter: ['class'] });
+  }
+})();
+</script>
+
+<style>
+/* ---- Stream layout ---- */
+.stream-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: clamp(16px, 2.4vw, 28px);
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .stream-layout { grid-template-columns: 1fr; }
+  .stream-chat-col { order: 2; }
+  .stream-player-col { order: 1; }
+}
+
+/* ---- Player ---- */
+.stream-player-col { display: flex; flex-direction: column; gap: 10px; }
+.stream-player-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid rgba(255, 94, 26, .35);
+  box-shadow: 0 0 60px -20px rgba(255, 94, 26, .45), 0 0 0 1px rgba(255, 94, 26, .1);
+}
+.stream-player-wrap iframe {
+  position: absolute; inset: 0; width: 100%; height: 100%; border: none;
+}
+.stream-placeholder {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.stream-placeholder::after { display: none; } /* suppress .ph label; we have custom inner */
+.stream-placeholder__inner {
+  display: flex; flex-direction: column; align-items: center; gap: 16px;
+  position: relative; z-index: 2;
+}
+.stream-live-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(225, 18, 18, .15);
+  border: 1px solid var(--pepper);
+  color: #fff; font-family: var(--mono); font-weight: 700;
+  font-size: 1rem; letter-spacing: .3em;
+  padding: 10px 24px; border-radius: 50px;
+  box-shadow: 0 0 24px rgba(225,18,18,.5);
+}
+.stream-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--pepper);
+  box-shadow: 0 0 8px var(--pepper);
+  animation: livePulse 1.2s ease-in-out infinite;
+}
+@keyframes livePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: .4; transform: scale(.7); }
+}
+.stream-set-title {
+  font-family: var(--display); font-size: clamp(1.8rem, 4vw, 3rem);
+  color: var(--bone); letter-spacing: 2px; text-align: center;
+}
+.stream-viewer-count {
+  font-family: var(--mono); font-size: .78rem; color: var(--bone-dim);
+  letter-spacing: .1em;
+}
+.stream-embed-note {
+  font-family: var(--mono); font-size: .68rem; color: var(--muted);
+  letter-spacing: .1em; line-height: 1.6; padding: 8px 0 0;
+}
+.stream-embed-note code {
+  color: var(--ember); background: rgba(255,94,26,.1);
+  padding: 2px 6px; border-radius: 4px;
+}
+
+/* ---- Chat ---- */
+.stream-chat-col { position: sticky; top: 86px; }
+.stream-chat {
+  background: linear-gradient(160deg, var(--char), var(--void-2));
+  border: var(--ring); border-radius: var(--radius);
+  display: flex; flex-direction: column;
+  height: min(560px, 65vh);
+  overflow: hidden;
+}
+@media (max-width: 900px) {
+  .stream-chat-col { position: static; }
+  .stream-chat { height: 340px; }
+}
+.stream-chat__head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 18px; border-bottom: var(--ring);
+  flex-shrink: 0;
+}
+.stream-chat__messages {
+  flex: 1; overflow-y: auto; padding: 14px 18px;
+  display: flex; flex-direction: column; gap: 10px;
+  scroll-behavior: smooth;
+}
+.stream-chat__messages::-webkit-scrollbar { width: 4px; }
+.stream-chat__messages::-webkit-scrollbar-track { background: transparent; }
+.stream-chat__messages::-webkit-scrollbar-thumb { background: var(--ash); border-radius: 4px; }
+.chat-msg { display: flex; flex-direction: column; gap: 3px; }
+.chat-user {
+  font-family: var(--mono); font-size: .65rem; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+}
+.chat-text {
+  font-size: .88rem; color: var(--bone-dim); line-height: 1.4;
+  padding-left: 6px; border-left: 2px solid rgba(255,255,255,.08);
+}
+.stream-chat__foot { padding: 12px 18px; border-top: var(--ring); flex-shrink: 0; }
+.stream-chat__input {
+  width: 100%;
+  background: rgba(255,255,255,.04); border: var(--ring);
+  color: var(--muted); padding: 11px 16px; border-radius: 50px;
+  font-family: var(--mono); font-size: .78rem;
+  cursor: not-allowed;
+}
+
+/* ---- Stream product card indicator ---- */
+.stream-card .card__media { position: relative; }
+.stream-live-indicator {
+  position: absolute; top: 12px; right: 12px;
+  font-family: var(--mono); font-size: .58rem; letter-spacing: .2em;
+  color: var(--uv-green); text-shadow: var(--glow-uv);
+  animation: livePulse 2s ease-in-out infinite;
+}
+
+/* ---- Schedule ---- */
+.stream-schedule { display: flex; flex-direction: column; gap: 2px; }
+.stream-sched-row {
+  display: grid;
+  grid-template-columns: 90px 1fr auto;
+  align-items: center; gap: 24px;
+  padding: 20px 2px;
+  border-bottom: var(--ring);
+  transition: .25s ease;
+}
+.stream-sched-row:hover{ transform: translateX(6px); }
+.stream-sched-date{ display:flex; flex-direction:column; }
+.sched-day{ font-family:var(--display); font-size:1.5rem; letter-spacing:1px; color:var(--ember); line-height:1; }
+.sched-time{ font-family:var(--mono); font-size:.7rem; color:var(--muted); margin-top:4px; }
+.stream-sched-body{ display:flex; flex-direction:column; gap:8px; }
+.stream-sched-title{ font-weight:700; font-size:1.05rem; color:var(--bone); }
+.stream-sched-tags{ display:flex; gap:8px; flex-wrap:wrap; }
+.stream-sched-platform{ font-family:var(--mono); font-size:.68rem; letter-spacing:.15em; text-transform:uppercase; color:var(--bone-dim); text-align:right; }
+@media (max-width:600px){
+  .stream-sched-row{ grid-template-columns: 70px 1fr; }
+  .stream-sched-platform{ display:none; }
+}
+</style>
+</body>
+</html>
